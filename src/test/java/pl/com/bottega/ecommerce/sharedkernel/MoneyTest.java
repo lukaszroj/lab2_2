@@ -16,4 +16,11 @@ public class MoneyTest {
         Money result = money.multiplyBy(2);
         Assert.assertThat(result,is(equalTo(expected)));
     }
+
+    @Test public void multiplyByNegative () {
+        Money money = new Money(100);
+        Money expected = new Money(-200);
+        Money result = money.multiplyBy(-2);
+        Assert.assertThat(result,is(equalTo(expected)));
+    }
 }
