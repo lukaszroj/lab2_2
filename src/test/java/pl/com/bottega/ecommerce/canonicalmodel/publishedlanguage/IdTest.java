@@ -24,7 +24,9 @@ public class IdTest {
 
     @Test
     public void equals() throws Exception {
-
+        Id idFirst = new Id("01");
+        Id idSecond = new Id("01");
+        assertThat(idFirst.equals(idSecond), is(true));
     }
 
 }
