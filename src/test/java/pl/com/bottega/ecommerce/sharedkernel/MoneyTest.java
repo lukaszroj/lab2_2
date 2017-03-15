@@ -59,4 +59,14 @@ public class MoneyTest {
         Money result = money1.add(money2);
         Assert.assertThat(result,is(equalTo(expected)));
     }
+
+    @Test public void addPositiveAndNegativeCompatibleMoney(){
+        Money money1 = new Money(100);
+        Money money2 = new Money(-100);
+        Money expected = new Money(0);
+        Money result = money1.add(money2);
+        Assert.assertThat(result,is(equalTo(expected)));
+    }
+
+
 }
