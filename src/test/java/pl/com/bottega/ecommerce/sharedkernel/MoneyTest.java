@@ -50,7 +50,13 @@ public class MoneyTest {
         Money money1 = new Money(100,Currency.getInstance("EUR"));
         Money money2 = new Money( 100,Currency.getInstance("PLN"));
         Money result = money1.add(money2);
+    }
 
-
+    @Test public void addPositiveCompatibleMoney(){
+        Money money1 = new Money(100);
+        Money money2 = new Money(100);
+        Money expected = new Money(200);
+        Money result = money1.add(money2);
+        Assert.assertThat(result,is(equalTo(expected)));
     }
 }
