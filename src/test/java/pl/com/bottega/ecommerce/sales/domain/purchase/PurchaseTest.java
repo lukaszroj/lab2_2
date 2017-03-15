@@ -24,7 +24,7 @@ public class PurchaseTest {
 
         purchase.confirm();
 
-        assertThat(purchase.isPaid(), is(true);
+        assertThat(purchase.isPaid(), is(true));
     }
 
     @Test
