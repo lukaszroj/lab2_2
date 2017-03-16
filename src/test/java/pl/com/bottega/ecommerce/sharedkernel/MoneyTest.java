@@ -39,7 +39,7 @@ public class MoneyTest {
         assertThat(moneyResult, is(moneyExpected));
     }
     @Test
-    public void checkDefaultCurrencyFormultiplyByPositiveNum() {
+    public void checkDefaultCurrencyForMultiplyByPositiveNum() {
         Money money = new Money(10);
         Money moneyResult = money.multiplyBy(4);
 
@@ -47,7 +47,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void checkDefaultCurrencyFormultiplyByNegativeNum() {
+    public void checkDefaultCurrencyForMultiplyByNegativeNum() {
         Money money = new Money(10);
         Money moneyResult = money.multiplyBy(-4);
 
@@ -55,7 +55,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void checkSpecialCurrencyFormultiplyByPositiveNum() {
+    public void checkSpecialCurrencyForMultiplyByPositiveNum() {
         Money money = new Money(10, Currency.getInstance("USD"));
         Money moneyResult = money.multiplyBy(4);
 
@@ -63,7 +63,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void checkSpecialCurrencyFormultiplyByNegativeNum() {
+    public void checkSpecialCurrencyForMultiplyByNegativeNum() {
         Money money = new Money(10, Currency.getInstance("USD"));
         Money moneyResult = money.multiplyBy(-4);
 
@@ -98,6 +98,28 @@ public class MoneyTest {
         Money moneyResult = money.add(moneyToAdd);
 
         assertThat(moneyResult, is(moneyExpected));
+    }
+
+    @Test
+    public void checkAddPositiveNumWithSameCurrency() {
+        Money money = new Money(10, Currency.getInstance("USD"));
+        Money moneyToAdd = new Money(10, Currency.getInstance("USD"));
+        Money moneyExpected = new Money(20, Currency.getInstance("USD"));
+        Money moneyResult = money.add(moneyToAdd);
+
+        assertThat(moneyResult, is(moneyExpected));
+        assertThat(moneyResult.getCurrencyCode(), is(money.getCurrencyCode()));
+    }
+
+    @Test
+    public void checkAddNegativeNumWithSameCurrency() {
+        Money money = new Money(10, Currency.getInstance("USD"));
+        Money moneyToAdd = new Money(-10, Currency.getInstance("USD"));
+        Money moneyExpected = new Money(0);
+        Money moneyResult = money.add(moneyToAdd);
+
+        assertThat(moneyResult, is(moneyExpected));
+        assertThat(moneyResult.getCurrencyCode(), is(money.getCurrencyCode()));
     }
 
 }
