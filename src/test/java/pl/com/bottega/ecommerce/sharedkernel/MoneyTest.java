@@ -29,4 +29,13 @@ public class MoneyTest {
         Money result = money.multiplyBy(-2);
         Assert.assertThat(result, is(equalTo(moneyExpected)));
     }
+
+    @Test
+    public void multiplyByZero() throws Exception {
+        Money money = new Money(150);
+        Money moneyExpected = new Money(0);
+
+        Money result = money.multiplyBy(0);
+        Assert.assertThat(result, is(equalTo(moneyExpected)));
+    }
 }
