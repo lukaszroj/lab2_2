@@ -76,13 +76,6 @@ public class MoneyTest {
 	}
 	
 	@Test
-	public void addTwoNegatives() {
-		Money expectation = new Money(-40);
-		Money reality = new Money(-20);
-		assertThat(reality.add(new Money(-20)), is(equalTo(expectation)));
-	}
-	
-	@Test
 	public void addTwoOnePosOneNeg() {
 		Money expectation = new Money (0);
 		Money reality = new Money(-20);
@@ -93,5 +86,12 @@ public class MoneyTest {
 	public void addException() {
 		Money testMoney = new Money(123, Currency.getInstance("EUR"));
 		testMoney.add(new Money(123, Currency.getInstance("USD")));
+	}
+	
+	@Test
+	public void subPositive() {
+		Money expectation = new Money(100);
+		Money reality = new Money(200);
+		assertThat(reality.subtract(new Money(100)), is(equalTo(expectation)));
 	}
 }
