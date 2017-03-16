@@ -213,4 +213,13 @@ public class MoneyTest {
         boolean result = money.lessOrEquals(moneyAdd);
         Assert.assertThat(result, is(true));
     }
+
+    @Test
+    public void lessOrEqualsForEqualNegativeNumbers(){
+        Money money = new Money(-250);
+        Money moneyAdd = new Money(-250);
+
+        boolean result = money.lessOrEquals(moneyAdd);
+        Assert.assertThat(result, is(true));
+    }
 }
