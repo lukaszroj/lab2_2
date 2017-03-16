@@ -76,4 +76,12 @@ public class MoneyTest {
         Money result = money.add(moneyAdd);
         Assert.assertThat(result, is(equalTo(moneyExpected)));
     }
+
+    @Test(expected = IllegalArgumentException)
+    public void addWithDifferentCurrency(){
+        Money money = new Money(150, Currency.getInstance("EUR"));
+        Money money2 = new Money(150, Currency.getInstance("PLN"));
+
+        Money result = money.add(money2);
+    }
 }
