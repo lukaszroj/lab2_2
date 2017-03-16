@@ -80,4 +80,14 @@ public class MoneyTest {
         assertThat(moneyResult, is(moneyExpected));
     }
 
+    @Test
+    public void addNegativeNumber(){
+        Money money = new Money(10);
+        Money moneyToAdd = new Money(-40);
+        Money moneyExpected = new Money(-30);
+        Money moneyResult = money.add(moneyToAdd);
+
+        assertThat(moneyResult, is(moneyExpected));
+    }
+
 }
