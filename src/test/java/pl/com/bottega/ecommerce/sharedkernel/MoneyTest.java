@@ -57,4 +57,15 @@ public class MoneyTest {
         assertThat(actual.getCurrency(), equalTo(money.getCurrency()));
         assertThat(actual, equalTo(new Money(val1 - val2, money.getCurrency())));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSubtract_DifferentCurrency() throws Exception {
+        double val1 = 69;
+        double val2 = 13;
+
+        Money money = new Money(val1, Currency.getInstance("PLN"));
+        Money money2 = new Money(val2, Currency.getInstance("EUR"));
+
+        money.subtract(money2);
+    }
 }
