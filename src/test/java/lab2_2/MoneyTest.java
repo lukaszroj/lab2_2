@@ -31,4 +31,11 @@ public class MoneyTest {
 		Money reality = new Money(20);
 		assertThat(reality.multiplyBy(2.0), is(equalTo(expectation)));
 	}
+	
+	@Test
+	public void multiplyByPositiveBigDecimal() {
+		Money expectation = new Money(40);
+		Money reality = new Money(20);
+		assertThat(reality.multiplyBy(new BigDecimal(2.0)), is(equalTo(expectation)));
+	}
 }
