@@ -1,10 +1,20 @@
 package pl.com.bottega.ecommerce.sales.domain.invoicing;
 
+import org.hamcrest.Matchers;
 import org.junit.Before;
+import org.junit.Test;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.ClientData;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.Id;
+import pl.com.bottega.ecommerce.sales.domain.productscatalog.ProductData;
+import pl.com.bottega.ecommerce.sales.domain.productscatalog.ProductDataTestFactory;
 import pl.com.bottega.ecommerce.sales.domain.productscatalog.ProductType;
 import pl.com.bottega.ecommerce.sharedkernel.Money;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
 
 public class BookKeeperTest {
 
@@ -24,5 +34,29 @@ public class BookKeeperTest {
         keeper = new BookKeeper();
         policy = new MockTaxPolicy();
         clientData = new ClientData(Id.generate(), "John Doe");
+    }
+
+    @Test
+    public void testIssuance_LineForEachRequest() throws Exception {
+        List<ProductData> items = new ArrayList<ProductData>();
+        items.add(ProductDataTestFactory.create(new Money(5), "drink", ProductType.FOOD));
+        items.add(ProductDataTestFactory.create(new Money(12), "stuff", ProductType.STANDARD));
+        items.add(ProductDataTestFactory.create(new Money(3), "cookie", ProductType.FOOD));
+
+        InvoiceRequest request = new InvoiceRequest(clientData);
+
+        int i = 1;
+        for(ProductData data : items) {
+            RequestItem item = new RequestItem(data, i, data.getPrice().multiplyBy(i));
+            request.add(item);
+        }
+
+        Invoice invoice = keeper.issuance(request, policy);
+
+        assertThat(invoice.getItems().size(), equalTo(items.size()));
+
+        for(InvoiceLine line : invoice.getItems()) {
+            assertThat(line.getProduct(), isIn(items));
+        }
     }
 }
