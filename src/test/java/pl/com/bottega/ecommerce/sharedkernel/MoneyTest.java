@@ -6,6 +6,7 @@ import java.util.Currency;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class MoneyTest {
 
@@ -67,5 +68,15 @@ public class MoneyTest {
         Money money2 = new Money(val2, Currency.getInstance("EUR"));
 
         money.subtract(money2);
+    }
+
+    @Test
+    public void testGreaterThan_CompatibleCurrency() throws Exception {
+        Money money1 = new Money(12.67);
+        Money money2 = new Money(135.69);
+
+        boolean actual = money2.greaterThan(money1);
+
+        assertThat(actual, is(true));
     }
 }
