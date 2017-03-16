@@ -77,7 +77,7 @@ public class MoneyTest {
         Assert.assertThat(result, is(equalTo(moneyExpected)));
     }
 
-    @Test(expected = IllegalArgumentException)
+    @Test(expected = IllegalArgumentException.class)
     public void addWithDifferentCurrency(){
         Money money = new Money(150, Currency.getInstance("EUR"));
         Money money2 = new Money(150, Currency.getInstance("PLN"));
