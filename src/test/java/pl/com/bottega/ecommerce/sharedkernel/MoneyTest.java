@@ -3,6 +3,8 @@ package pl.com.bottega.ecommerce.sharedkernel;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Currency;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -42,6 +44,14 @@ public class MoneyTest {
     @Test
     public void multiplyByPositiveNumberWithDefaultCurrency(){
         Money money = new Money(150);
+
+        Money result = money.multiplyBy(2);
+        Assert.assertThat(result.getCurrencyCode(), is(equalTo(money.getCurrencyCode())));
+    }
+
+    @Test
+    public void multiplyByPositiveNumberWithNotDefaultCurrency(){
+        Money money = new Money(150, Currency.getInstance("EUR"));
 
         Money result = money.multiplyBy(2);
         Assert.assertThat(result.getCurrencyCode(), is(equalTo(money.getCurrencyCode())));
