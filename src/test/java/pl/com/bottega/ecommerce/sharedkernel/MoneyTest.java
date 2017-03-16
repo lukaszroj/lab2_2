@@ -105,4 +105,14 @@ public class MoneyTest {
 
         money1.lessThan(money2);
     }
+
+    @Test
+    public void testLessOrEqual_CompatibleCurrency_Less() throws Exception {
+        Money money1 = new Money(11);
+        Money money2 = new Money(12);
+
+        boolean actual = money1.lessOrEquals(money2);
+
+        assertThat(actual, is(true));
+    }
 }
