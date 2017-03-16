@@ -84,4 +84,14 @@ public class MoneyTest {
 
         Money result = money.add(money2);
     }
+
+    @Test
+    public void substractByPositiveNumber(){
+        Money money = new Money(150);
+        Money moneyAdd = new Money(100);
+        Money moneyExpected = new Money(50);
+
+        Money result = money.subtract(moneyAdd);
+        Assert.assertThat(result, is(equalTo(moneyExpected)));
+    }
 }
