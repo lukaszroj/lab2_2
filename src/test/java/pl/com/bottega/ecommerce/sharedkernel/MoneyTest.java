@@ -97,4 +97,12 @@ public class MoneyTest {
 
         assertThat(actual, is(false));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testLessThan_IncompatibleCurrency() throws Exception {
+        Money money1 = new Money(11);
+        Money money2 = new Money(12);
+
+        money1.lessThan(money2);
+    }
 }
