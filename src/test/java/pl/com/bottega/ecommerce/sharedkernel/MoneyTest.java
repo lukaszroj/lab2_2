@@ -90,4 +90,14 @@ public class MoneyTest {
         assertThat(moneyResult, is(moneyExpected));
     }
 
+    @Test
+    public void addZeroNumber(){
+        Money money = new Money(10);
+        Money moneyToAdd = new Money(0);
+        Money moneyExpected = new Money(10);
+        Money moneyResult = money.add(moneyToAdd);
+
+        assertThat(moneyResult, is(moneyExpected));
+    }
+
 }
