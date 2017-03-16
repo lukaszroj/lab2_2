@@ -101,4 +101,11 @@ public class MoneyTest {
 		Money reality = new Money(200);
 		assertThat(reality.subtract(new Money(-100)), is(equalTo(expectation)));
 	}
+	
+	@Test
+	public void subZero() {
+		Money expectation = new Money(100);
+		Money reality = new Money(100);
+		assertThat(reality.subtract(new Money(0)), is(equalTo(expectation)));
+	}
 }
