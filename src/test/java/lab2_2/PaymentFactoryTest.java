@@ -19,5 +19,4 @@ public class PaymentFactoryTest {
 		Payment reality = pf.createPayment(new ClientData(Id.generate(), "Mateusz"), new Money(123));
 		assertThat(reality, is(instanceOf(Payment.class)));
 	}
-
 }

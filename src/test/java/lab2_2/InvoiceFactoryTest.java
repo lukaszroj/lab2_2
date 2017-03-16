@@ -18,5 +18,4 @@ public class InvoiceFactoryTest {
 		Invoice reality = ifact.create(new ClientData(Id.generate(), "Mateusz"));
 		assertThat(reality, is(instanceOf(Invoice.class)));
 	}
-
 }
