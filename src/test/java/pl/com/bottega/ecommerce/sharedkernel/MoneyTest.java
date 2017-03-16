@@ -168,4 +168,26 @@ public class MoneyTest {
         assertThat(moneyResult, is(moneyExpected));
     }
 
+    @Test
+    public void checkSubtractPositiveNumWithSameCurrency() {
+        Money money = new Money(90, Currency.getInstance("USD"));
+        Money moneyToSubtract = new Money(40, Currency.getInstance("USD"));
+        Money moneyExpected = new Money(50, Currency.getInstance("USD"));
+        Money moneyResult = money.subtract(moneyToSubtract);
+
+        assertThat(moneyResult, is(moneyExpected));
+        assertThat(moneyResult.getCurrencyCode(), is(money.getCurrencyCode()));
+    }
+
+    @Test
+    public void checkSubtractNegativeNumWithSameCurrency() {
+        Money money = new Money(90, Currency.getInstance("USD"));
+        Money moneyToSubtract = new Money(-40, Currency.getInstance("USD"));
+        Money moneyExpected = new Money(130, Currency.getInstance("USD"));
+        Money moneyResult = money.subtract(moneyToSubtract);
+
+        assertThat(moneyResult, is(moneyExpected));
+        assertThat(moneyResult.getCurrencyCode(), is(money.getCurrencyCode()));
+    }
+
 }
