@@ -132,4 +132,13 @@ public class MoneyTest {
 
         Money result = money.subtract(money2);
     }
+
+    @Test
+    public void greaterThanPositiveNumber(){
+        Money money = new Money(150);
+        Money moneyAdd = new Money(100);
+
+        boolean result = money.greaterThan(moneyAdd);
+        Assert.assertThat(result, is(true));
+    }
 }
