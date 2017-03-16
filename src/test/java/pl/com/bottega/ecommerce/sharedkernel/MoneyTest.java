@@ -18,4 +18,18 @@ public class MoneyTest {
         assertThat(money2.getCurrency(), equalTo(money.getCurrency()));
         assertThat(money2, equalTo(new Money(500, money.getCurrency())));
     }
+
+    @Test
+    public void testAdd_SameCurrency() throws Exception {
+        double val1 = 100;
+        double val2 = 12.5;
+
+        Money money = new Money(val1, Currency.getInstance("PLN"));
+        Money money2 = new Money(val2, Currency.getInstance("PLN"));
+
+        Money actual = money.add(money2);
+
+        assertThat(actual.getCurrency(), equalTo(money.getCurrency()));
+        assertThat(actual, equalTo(new Money(val1 + val2, money.getCurrency())));
+    }
 }
