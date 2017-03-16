@@ -177,4 +177,13 @@ public class MoneyTest {
         boolean result = money.lessThan(moneyAdd);
         Assert.assertThat(result, is(true));
     }
+
+    @Test
+    public void lessThanNegativeNumbersWithCurrency(){
+        Money money = new Money(150, "EUR");
+        Money moneyAdd = new Money(250);
+
+        boolean result = money.lessThan(moneyAdd);
+        Assert.assertThat(result, is(true));
+    }
 }
