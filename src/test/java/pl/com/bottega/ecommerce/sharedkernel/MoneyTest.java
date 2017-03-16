@@ -43,4 +43,18 @@ public class MoneyTest {
 
         money.add(money2);
     }
+
+    @Test
+    public void testSubtract_SameCurrency() throws Exception {
+        double val1 = 15;
+        double val2 = 4;
+
+        Money money = new Money(val1, Currency.getInstance("PLN"));
+        Money money2 = new Money(val2, Currency.getInstance("PLN"));
+
+        Money actual = money.subtract(money2);
+
+        assertThat(actual.getCurrency(), equalTo(money.getCurrency()));
+        assertThat(actual, equalTo(new Money(val1 - val2, money.getCurrency())));
+    }
 }
