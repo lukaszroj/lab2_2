@@ -79,4 +79,12 @@ public class MoneyTest {
 
         assertThat(actual, is(true));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGreaterThan_IncompatibleCurrency() throws Exception {
+        Money money1 = new Money(135.8);
+        Money money2 = new Money(11);
+
+        boolean actual = money1.greaterThan(money2);
+    }
 }
