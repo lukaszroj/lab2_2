@@ -161,6 +161,15 @@ public class MoneyTest {
     }
 
     @Test
+    public void greaterThanWithTwoNegativeNumber(){
+        Money money = new Money(-50);
+        Money moneyAdd = new Money(-100);
+
+        boolean result = money.greaterThan(moneyAdd);
+        Assert.assertThat(result, is(true));
+    }
+
+    @Test
     public void lessThanPositiveNumbers(){
         Money money = new Money(150);
         Money moneyAdd = new Money(250);
