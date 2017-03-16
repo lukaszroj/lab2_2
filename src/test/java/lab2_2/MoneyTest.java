@@ -114,4 +114,11 @@ public class MoneyTest {
 		Money testMoney = new Money(123, Currency.getInstance("EUR"));
 		testMoney.subtract(new Money(123, Currency.getInstance("USD")));
 	}
+	
+	@Test
+	public void subTwoNegatives() {
+		Money expectation = new Money(-100);
+		Money reality = new Money(-200);
+		assertThat(reality.subtract(new Money(-100)), is(equalTo(expectation)));
+	}
 }
