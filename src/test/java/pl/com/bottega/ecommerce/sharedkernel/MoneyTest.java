@@ -98,39 +98,39 @@ public class MoneyTest {
     @Test
     public void substractByPositiveNumber(){
         Money money = new Money(150);
-        Money moneyAdd = new Money(100);
+        Money moneySub = new Money(100);
         Money moneyExpected = new Money(50);
 
-        Money result = money.subtract(moneyAdd);
+        Money result = money.subtract(moneySub);
         Assert.assertThat(result, is(equalTo(moneyExpected)));
     }
 
     @Test
     public void substractByNegativeNumber(){
         Money money = new Money(150);
-        Money moneyAdd = new Money(-100);
+        Money moneySub = new Money(-100);
         Money moneyExpected = new Money(250);
 
-        Money result = money.subtract(moneyAdd);
+        Money result = money.subtract(moneySub);
         Assert.assertThat(result, is(equalTo(moneyExpected)));
     }
 
     @Test
     public void substractByNegativeNumberWithCurrency(){
         Money money = new Money(150, "EUR");
-        Money moneyAdd = new Money(-100);
+        Money moneySub = new Money(-100);
         Money moneyExpected = new Money(50, "EUR");
 
-        Money result = money.subtract(moneyAdd);
+        Money result = money.subtract(moneySub);
         Assert.assertThat(result.getCurrencyCode(), is(equalTo(moneyExpected.getCurrencyCode())));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void substractWithDifferentCurrency(){
         Money money = new Money(150, Currency.getInstance("EUR"));
-        Money money2 = new Money(150, Currency.getInstance("PLN"));
+        Money moneySub = new Money(150, Currency.getInstance("PLN"));
 
-        Money result = money.subtract(money2);
+        Money result = money.subtract(moneySub);
     }
 
     @Test
@@ -145,90 +145,90 @@ public class MoneyTest {
     @Test
     public void greaterThanNegativeNumber(){
         Money money = new Money(150);
-        Money moneyAdd = new Money(-100);
+        Money money2 = new Money(-100);
 
-        boolean result = money.greaterThan(moneyAdd);
+        boolean result = money.greaterThan(money2);
         Assert.assertThat(result, is(true));
     }
 
     @Test
     public void greaterThanWithCurrency(){
         Money money = new Money(150, "PLN");
-        Money moneyAdd = new Money(100);
+        Money money2 = new Money(100);
 
-        boolean result = money.greaterThan(moneyAdd);
+        boolean result = money.greaterThan(money2);
         Assert.assertThat(result, is(true));
     }
 
     @Test
     public void greaterThanWithTwoNegativeNumber(){
         Money money = new Money(-50);
-        Money moneyAdd = new Money(-100);
+        Money money2 = new Money(-100);
 
-        boolean result = money.greaterThan(moneyAdd);
+        boolean result = money.greaterThan(money2);
         Assert.assertThat(result, is(true));
     }
 
     @Test
     public void lessThanPositiveNumbers(){
         Money money = new Money(150);
-        Money moneyAdd = new Money(250);
+        Money money2 = new Money(250);
 
-        boolean result = money.lessThan(moneyAdd);
+        boolean result = money.lessThan(money2);
         Assert.assertThat(result, is(true));
     }
 
     @Test
     public void lessThanNegativeNumbers(){
         Money money = new Money(-150);
-        Money moneyAdd = new Money(250);
+        Money money2 = new Money(250);
 
-        boolean result = money.lessThan(moneyAdd);
+        boolean result = money.lessThan(money2);
         Assert.assertThat(result, is(true));
     }
 
     @Test
     public void lessThanNegativeNumbersWithCurrency(){
         Money money = new Money(150, "EUR");
-        Money moneyAdd = new Money(250);
+        Money money2 = new Money(250);
 
-        boolean result = money.lessThan(moneyAdd);
+        boolean result = money.lessThan(money2);
         Assert.assertThat(result, is(true));
     }
 
     @Test
     public void lessThanWithTwoNegativeNumber(){
         Money money = new Money(-150);
-        Money moneyAdd = new Money(-100);
+        Money money2 = new Money(-100);
 
-        boolean result = money.lessThan(moneyAdd);
+        boolean result = money.lessThan(money2);
         Assert.assertThat(result, is(true));
     }
 
     @Test
     public void lessOrEqualsForEqualPositiveNumbers(){
         Money money = new Money(250);
-        Money moneyAdd = new Money(250);
+        Money money2 = new Money(250);
 
-        boolean result = money.lessOrEquals(moneyAdd);
+        boolean result = money.lessOrEquals(money2);
         Assert.assertThat(result, is(true));
     }
 
     @Test
     public void lessOrEqualsForEqualNegativeNumbers(){
         Money money = new Money(-250);
-        Money moneyAdd = new Money(-250);
+        Money money2 = new Money(-250);
 
-        boolean result = money.lessOrEquals(moneyAdd);
+        boolean result = money.lessOrEquals(money2);
         Assert.assertThat(result, is(true));
     }
 
     @Test
     public void lessOrEqualsForEqualNumbersWithCurrency(){
         Money money = new Money(250, "EUR");
-        Money moneyAdd = new Money(250);
+        Money money2 = new Money(250);
 
-        boolean result = money.lessOrEquals(moneyAdd);
+        boolean result = money.lessOrEquals(money2);
         Assert.assertThat(result, is(true));
     }
 }
