@@ -19,12 +19,6 @@ public class BookKeeperTest {
         }
     }
 
-    //class BookKeeper currently untestable due to lack of possibility to inject invoiceFactory to BookKeeper
-    /*
-        class currently untestable due to lack of possibility to create ProductData required for creating
-        RequestItem which is necessary for creating InvoiceRequest with any meaningful data, witch is necessary for tests
-    */
-
     @Before
     public void setUp() throws Exception {
         keeper = new BookKeeper();
