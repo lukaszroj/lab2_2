@@ -190,4 +190,19 @@ public class MoneyTest {
         assertThat(moneyResult.getCurrencyCode(), is(money.getCurrencyCode()));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void checkSubtractPositiveNumWithDiffrentCurrency() {
+        Money money = new Money(90, Currency.getInstance("USD"));
+        Money moneyToSubtract = new Money(40, Currency.getInstance("PLN"));
+
+        Money moneyResult = money.subtract(moneyToSubtract);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkSubtractNegativeNumWithDiffrentCurrency() {
+        Money money = new Money(90, Currency.getInstance("USD"));
+        Money moneyToSubtract = new Money(-40, Currency.getInstance("PLN"));
+
+        Money moneyResult = money.subtract(moneyToSubtract);
+    }
 }
