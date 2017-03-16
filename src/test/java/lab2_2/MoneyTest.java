@@ -80,4 +80,11 @@ public class MoneyTest {
 		Money reality = new Money(-20);
 		assertThat(reality.add(new Money(-20)), is(equalTo(expectation)));
 	}
+	
+	@Test
+	public void addTwoOnePosOneNeg() {
+		Money expectation = new Money (0);
+		Money reality = new Money(-20);
+		assertThat(reality.add(new Money(20)), is(equalTo(expectation)));
+	}
 }
