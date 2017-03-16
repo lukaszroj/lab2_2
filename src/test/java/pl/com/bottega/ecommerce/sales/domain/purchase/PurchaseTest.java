@@ -38,44 +38,4 @@ public class PurchaseTest {
         assertThat(purchase.isPaid(), is(false));
     }
 
-    @Test
-    public void getTotalCost() throws Exception {
-        List<PurchaseItem> items = null;
-        ClientData clientData = new ClientData(new Id("02"), "Adam");
-        Money money = new Money(12.4);
-        Purchase purchase = new Purchase(new Id("01"), clientData, items, new Date(2017,03,15),false, money);
-
-        assertThat(purchase.getTotalCost(), is(money));
-    }
-
-    @Test
-    public void getPurchaseDate() throws Exception {
-        List<PurchaseItem> items = null;
-        ClientData clientData = new ClientData(new Id("02"), "Adam");
-        Money money = new Money(12.4);
-        Purchase purchase = new Purchase(new Id("01"), clientData, items, new Date(2017,03,15),false, money);
-
-        assertThat(purchase.getPurchaseDate(), is(new Date(2017,03,15)));
-    }
-
-    @Test
-    public void getClientData() throws Exception {
-        List<PurchaseItem> items = null;
-        ClientData clientData = new ClientData(new Id("02"), "Adam");
-        Money money = new Money(12.4);
-        Purchase purchase = new Purchase(new Id("01"), clientData, items, new Date(2017,03,15),false, money);
-
-        assertThat(purchase.getClientData(), is(clientData));
-    }
-
-    @Test
-    public void getAggregateId() throws Exception {
-        List<PurchaseItem> items = null;
-        ClientData clientData = new ClientData(new Id("02"), "Adam");
-        Money money = new Money(12.4);
-        Purchase purchase = new Purchase(new Id("01"), clientData, items, new Date(2017,03,15),false, money);
-
-        assertThat(purchase.getAggregateId(), is(new Id("01")));
-    }
-
 }

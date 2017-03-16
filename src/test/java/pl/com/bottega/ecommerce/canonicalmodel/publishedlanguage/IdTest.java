@@ -17,12 +17,6 @@ public class IdTest {
     }
 
     @Test
-    public void getId() throws Exception {
-        Id id = new Id("01");
-        assertThat(id.getId(), is("01"));
-    }
-
-    @Test
     public void equals() throws Exception {
         Id idFirst = new Id("01");
         Id idSecond = new Id("01");

@@ -31,20 +31,4 @@ public class InvoiceRequestTest {
         assertThat(invoiceRequest.getItems(), is(notNullValue()));
     }
 
-    @Test
-    public void getClient() throws Exception {
-        ClientData clientData = new ClientData(new Id("02"), "Adam");
-        InvoiceRequest invoiceRequest = new InvoiceRequest(clientData);
-
-        assertThat(invoiceRequest.getClient(), is(clientData));
-    }
-
-    @Test
-    public void getClientData() throws Exception {
-        ClientData clientData = new ClientData(new Id("02"), "Adam");
-        InvoiceRequest invoiceRequest = new InvoiceRequest(clientData);
-
-        assertThat(invoiceRequest.getClientData(), is(clientData));
-    }
-
 }

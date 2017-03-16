@@ -15,36 +15,6 @@ import static org.junit.Assert.*;
 public class ProductDataTest {
 
     @Test
-    public void getProductId() throws Exception {
-        ProductData product = new ProductData(new Id("0"),new Money(12.4),"Hamburger", ProductType.FOOD, new Date(2017,3,15));
-        assertThat(product.getProductId(), is(new Id("0")));
-    }
-
-    @Test
-    public void getPrice() throws Exception {
-        ProductData product = new ProductData(new Id("0"),new Money(12.4),"Hamburger", ProductType.FOOD, new Date(2017,3,15));
-        assertThat(product.getPrice(), is(new Money(12.4)));
-    }
-
-    @Test
-    public void getName() throws Exception {
-        ProductData product = new ProductData(new Id("0"),new Money(12.4),"Hamburger", ProductType.FOOD, new Date(2017,3,15));
-        assertThat(product.getName(), is("Hamburger"));
-    }
-
-    @Test
-    public void getSnapshotDate() throws Exception {
-        ProductData product = new ProductData(new Id("0"),new Money(12.4),"Hamburger", ProductType.FOOD, new Date(2017,3,15));
-        assertThat(product.getSnapshotDate(), is(new Date(2017,3,15)));
-    }
-
-    @Test
-    public void getType() throws Exception {
-        ProductData product = new ProductData(new Id("0"),new Money(12.4),"Hamburger", ProductType.FOOD, new Date(2017,3,15));
-        assertThat(product.getType(), is(ProductType.FOOD));
-    }
-
-    @Test
     public void equals() throws Exception {
         ProductData product = new ProductData(new Id("0"),new Money(12.4),"Hamburger", ProductType.FOOD, new Date(2017,3,15));
         ProductData theSameProduct = new ProductData(new Id("0"),new Money(12.4),"Hamburger", ProductType.FOOD, new Date(2017,3,15));
