@@ -1,13 +1,10 @@
 package pl.com.bottega.ecommerce.sales.domain.invoicing;
 
 import org.junit.Before;
-import org.junit.Test;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.ClientData;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.Id;
 import pl.com.bottega.ecommerce.sales.domain.productscatalog.ProductType;
 import pl.com.bottega.ecommerce.sharedkernel.Money;
-
-import static org.junit.Assert.*;
 
 public class BookKeeperTest {
 
@@ -22,16 +19,16 @@ public class BookKeeperTest {
         }
     }
 
+    //class BookKeeper currently untestable due to lack of possibility to inject invoiceFactory to BookKeeper
+    /*
+        class currently untestable due to lack of possibility to create ProductData required for creating
+        RequestItem which is necessary for creating InvoiceRequest with any meaningful data, witch is necessary for tests
+    */
+
     @Before
     public void setUp() throws Exception {
         keeper = new BookKeeper();
         policy = new MockTaxPolicy();
         clientData = new ClientData(Id.generate(), "John Doe");
     }
-
-    @Test
-    public void issuance() throws Exception {
-
-    }
-
 }
