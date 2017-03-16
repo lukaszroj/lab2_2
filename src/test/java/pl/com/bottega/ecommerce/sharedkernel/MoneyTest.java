@@ -10,12 +10,12 @@ import static org.junit.Assert.*;
  */
 public class MoneyTest {
     @Test
-    public void multiplyBy() {
+    public void multiplyByPositiveNum() {
         Money money = new Money(10);
-        Money money1 = new Money(40);
+        Money moneyExpected = new Money(40);
         Money moneyResult = money.multiplyBy(4);
 
-        assertThat(moneyResult, is(money1));
+        assertThat(moneyResult, is(moneyExpected));
     }
 
 }
