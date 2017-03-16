@@ -163,7 +163,7 @@ public class MoneyTest {
     @Test
     public void lessThanPositiveNumbers(){
         Money money = new Money(150);
-        Money moneyAdd = new Money(100);
+        Money moneyAdd = new Money(250);
 
         boolean result = money.lessThan(moneyAdd);
         Assert.assertThat(result, is(true));
