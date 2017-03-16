@@ -122,4 +122,20 @@ public class MoneyTest {
         assertThat(moneyResult.getCurrencyCode(), is(money.getCurrencyCode()));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void checkAddPositiveNumWithDiffrentCurrency() {
+        Money money = new Money(10, Currency.getInstance("USD"));
+        Money moneyToAdd = new Money(10, Currency.getInstance("PLN"));
+
+        Money moneyResult = money.add(moneyToAdd);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkAddNegativeNumWithDiffrentCurrency() {
+        Money money = new Money(10, Currency.getInstance("USD"));
+        Money moneyToAdd = new Money(-10, Currency.getInstance("PLN"));
+
+        Money moneyResult = money.add(moneyToAdd);
+    }
+
 }
