@@ -38,4 +38,12 @@ public class MoneyTest {
         Money result = money.multiplyBy(0);
         Assert.assertThat(result, is(equalTo(moneyExpected)));
     }
+
+    @Test
+    public void multiplyByPositiveNumberWithDefaultCurrency(){
+        Money money = new Money(150);
+
+        Money result = money.multiplyBy(2);
+        Assert.assertThat(result.getCurrencyCode(), is(equalTo(money.getCurrencyCode())));
+    }
 }
