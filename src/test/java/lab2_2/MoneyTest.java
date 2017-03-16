@@ -3,6 +3,7 @@ package lab2_2;
 import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
+import java.util.Currency;
 
 import org.junit.Test;
 
@@ -86,5 +87,11 @@ public class MoneyTest {
 		Money expectation = new Money (0);
 		Money reality = new Money(-20);
 		assertThat(reality.add(new Money(20)), is(equalTo(expectation)));
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void addException() {
+		Money testMoney = new Money(123, Currency.getInstance("EUR"));
+		testMoney.add(new Money(123, Currency.getInstance("USD")));
 	}
 }
