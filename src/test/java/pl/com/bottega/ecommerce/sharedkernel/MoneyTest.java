@@ -222,4 +222,13 @@ public class MoneyTest {
         boolean result = money.lessOrEquals(moneyAdd);
         Assert.assertThat(result, is(true));
     }
+
+    @Test
+    public void lessOrEqualsForEqualNumbersWithCurrency(){
+        Money money = new Money(250, "EUR");
+        Money moneyAdd = new Money(250);
+
+        boolean result = money.lessOrEquals(moneyAdd);
+        Assert.assertThat(result, is(true));
+    }
 }
