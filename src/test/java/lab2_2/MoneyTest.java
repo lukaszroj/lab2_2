@@ -108,4 +108,10 @@ public class MoneyTest {
 		Money reality = new Money(100);
 		assertThat(reality.subtract(new Money(0)), is(equalTo(expectation)));
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void subException() {
+		Money testMoney = new Money(123, Currency.getInstance("EUR"));
+		testMoney.subtract(new Money(123, Currency.getInstance("USD")));
+	}
 }
