@@ -28,4 +28,20 @@ public class MoneyTest {
         assertThat(moneyResult, is(moneyExpected));
     }
 
+    @Test
+    public void checkDefaultCurrencyFormultiplyByPositiveNum() {
+        Money money = new Money(10);
+        Money moneyResult = money.multiplyBy(4);
+
+        assertThat(moneyResult.getCurrencyCode(), is(money.getCurrencyCode()));
+    }
+
+    @Test
+    public void checkDefaultCurrencyFormultiplyByNegativeNum() {
+        Money money = new Money(10);
+        Money moneyResult = money.multiplyBy(-4);
+
+        assertThat(moneyResult.getCurrencyCode(), is(money.getCurrencyCode()));
+    }
+
 }
