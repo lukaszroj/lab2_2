@@ -59,4 +59,18 @@ public class BookKeeperTest {
             assertThat(line.getProduct(), isIn(items));
         }
     }
+
+    @Test
+    public void testIssuance_CorrectTax() throws Exception {
+        RequestItem item = new RequestItem(ProductDataTestFactory.create(new Money(100), "stuff", ProductType.STANDARD), 1, new Money(100));
+
+        InvoiceRequest request = new InvoiceRequest(clientData);
+        request.add(item);
+
+        Invoice invoice = keeper.issuance(request, policy);
+
+        assertThat(invoice.getItems().size(), is(1));
+        assertThat(invoice.getItems().get(0).getTax().getAmount(), equalTo(policy.calculateTax(ProductType.STANDARD, item.getTotalCost()).getAmount()));
+        assertThat(invoice.getItems().get(0).getTax().getDescription(), equalTo(policy.calculateTax(ProductType.STANDARD, item.getTotalCost()).getDescription()));
+    }
 }
