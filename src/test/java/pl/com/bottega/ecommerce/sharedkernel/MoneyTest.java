@@ -148,4 +148,24 @@ public class MoneyTest {
         assertThat(moneyResult, is(moneyExpected));
     }
 
+    @Test
+    public void subtractNegativeNumber(){
+        Money money = new Money(90);
+        Money moneyToSubtract = new Money(-40);
+        Money moneyExpected = new Money(130);
+        Money moneyResult = money.subtract(moneyToSubtract);
+
+        assertThat(moneyResult, is(moneyExpected));
+    }
+
+    @Test
+    public void subtractZeroNumber(){
+        Money money = new Money(90);
+        Money moneyToSubtract = new Money(0);
+        Money moneyExpected = new Money(90);
+        Money moneyResult = money.subtract(moneyToSubtract);
+
+        assertThat(moneyResult, is(moneyExpected));
+    }
+
 }
