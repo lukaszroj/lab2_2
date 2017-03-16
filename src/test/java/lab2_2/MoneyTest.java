@@ -73,4 +73,11 @@ public class MoneyTest {
 		Money reality = new Money(40);
 		assertThat(reality.add(new Money(-20)), is(equalTo(expectation)));
 	}
+	
+	@Test
+	public void addTwoNegatives() {
+		Money expectation = new Money(-40);
+		Money reality = new Money(-20);
+		assertThat(reality.add(new Money(-20)), is(equalTo(expectation)));
+	}
 }
