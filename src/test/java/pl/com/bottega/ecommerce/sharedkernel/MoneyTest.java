@@ -85,6 +85,16 @@ public class MoneyTest {
         Money money1 = new Money(135.8);
         Money money2 = new Money(11);
 
-        boolean actual = money1.greaterThan(money2);
+        money1.greaterThan(money2);
+    }
+
+    @Test
+    public void testLessThan_CompatibleCurrency() throws Exception {
+        Money money1 = new Money(13.85);
+        Money money2 = new Money(12.6);
+
+        boolean actual = money1.lessThan(money2);
+
+        assertThat(actual, is(false));
     }
 }
