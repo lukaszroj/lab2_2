@@ -31,6 +31,14 @@ public class MoneyTest {
     }
 
     @Test
+    public void multiplyByZeroNum() {
+        Money money = new Money(10);
+        Money moneyExpected = new Money(0);
+        Money moneyResult = money.multiplyBy(0);
+
+        assertThat(moneyResult, is(moneyExpected));
+    }
+    @Test
     public void checkDefaultCurrencyFormultiplyByPositiveNum() {
         Money money = new Money(10);
         Money moneyResult = money.multiplyBy(4);
