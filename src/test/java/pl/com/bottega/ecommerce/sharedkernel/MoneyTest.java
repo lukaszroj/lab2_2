@@ -62,4 +62,14 @@ public class MoneyTest {
         assertThat(moneyResult.getCurrencyCode(), is(money.getCurrencyCode()));
     }
 
+    @Test
+    public void addPositiveNumber(){
+        Money money = new Money(10);
+        Money moneyToAdd = new Money(40);
+        Money moneyExpected = new Money(50);
+        Money moneyResult = money.add(moneyToAdd);
+
+        assertThat(moneyResult, is(moneyExpected));
+    }
+
 }
