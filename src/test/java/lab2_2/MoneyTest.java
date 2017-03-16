@@ -53,9 +53,17 @@ public class MoneyTest {
 		assertThat(reality.multiplyBy(new BigDecimal(-2.0)), is(equalTo(expectation)));
 	}
 	
-	@Test public void addZero() {
+	@Test
+	public void addZero() {
 		Money expectation = new Money(50);
 		Money reality = new Money(50);
 		assertThat(reality.add(new Money(0)), is(equalTo(expectation)));
+	}
+	
+	@Test
+	public void addPositive() {
+		Money expectation = new Money(40);
+		Money reality = new Money(20);
+		assertThat(reality.add(new Money(20)), is(equalTo(expectation)));
 	}
 }
