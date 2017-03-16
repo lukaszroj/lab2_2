@@ -115,6 +115,16 @@ public class MoneyTest {
         Assert.assertThat(result, is(equalTo(moneyExpected)));
     }
 
+    @Test
+    public void substractByNegativeNumberWithCurrency(){
+        Money money = new Money(150, "EUR");
+        Money moneyAdd = new Money(-100);
+        Money moneyExpected = new Money(50, "EUR");
+
+        Money result = money.subtract(moneyAdd);
+        Assert.assertThat(result.getCurrencyCode(), is(equalTo(moneyExpected.getCurrencyCode())));
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void substractWithDifferentCurrency(){
         Money money = new Money(150, Currency.getInstance("EUR"));
