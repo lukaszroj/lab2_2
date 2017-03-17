@@ -232,4 +232,14 @@ public class MoneyTest {
 
         assertThat(moneyResult, is(true));
     }
+
+    @Test
+    public void greaterThanWithSameCurrency() {
+        Money money = new Money(10, Currency.getInstance("USD"));
+        Money moneyToCompare = new Money(40, Currency.getInstance("USD"));
+        boolean moneyResult = money.greaterThan(moneyToCompare);
+
+        assertThat(moneyResult, is(false));
+    }
+    
 }
