@@ -205,4 +205,13 @@ public class MoneyTest {
 
         Money moneyResult = money.subtract(moneyToSubtract);
     }
+
+    @Test
+    public void greaterThanPositiveNum() {
+        Money money = new Money(10);
+        Money moneyToCompare = new Money(40);
+        boolean moneyResult = money.greaterThan(moneyToCompare);
+
+        assertThat(moneyResult, is(false));
+    }
 }
