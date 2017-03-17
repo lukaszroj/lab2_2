@@ -48,4 +48,12 @@ public class MoneyTest {
 
         assertThat(resultMoney,is(EXPECTED_MONEY));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void substractMoneyThrowException() {
+        Money money1 = new Money(20,"USD");
+        Money money2 = new Money(10,"PLN");
+
+        money1.add(money2);
+    }
 }
