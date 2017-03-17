@@ -295,4 +295,14 @@ public class MoneyTest {
 
         assertThat(moneyResult, is(true));
     }
+
+    @Test
+    public void lessOrEqualsWithSameCurrency() {
+        Money money = new Money(10, Currency.getInstance("USD"));
+        Money moneyToCompare = new Money(10, Currency.getInstance("USD"));
+        boolean moneyResult = money.lessOrEquals(moneyToCompare);
+
+        assertThat(moneyResult, is(true));
+    }
+
 }
