@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 public class BookKeeperTest {
 
     @Test
-    public void taxCheck(){
+    public void taxCheck() throws Exception{
         ClientData clientData = new ClientData(Id.generate(), "TestUser1");
         InvoiceFactory invoiceFactory = new InvoiceFactory();
         InvoiceRequest invoiceRequest = new InvoiceRequest(clientData);
