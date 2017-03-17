@@ -56,4 +56,15 @@ public class MoneyTest {
 
         money1.add(money2);
     }
+
+    @Test
+    public void greaterThanMoney() {
+        final boolean EXPECTED_RESULT = true;
+        Money money1 = new Money(20);
+        Money money2 = new Money(10);
+
+        boolean result = money1.greaterThan(money2);
+
+        assertThat(result, is(EXPECTED_RESULT));
+    }
 }
