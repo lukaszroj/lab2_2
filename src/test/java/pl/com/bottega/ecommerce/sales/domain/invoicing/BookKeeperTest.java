@@ -39,8 +39,9 @@ public class BookKeeperTest {
             Assert.assertThat(tax.getAmount(), is(equalTo(net)));
 
             InvoiceLine invoiceLine = new InvoiceLine(item.getProductData(),
-                    item.getQuantity(), net, tax);
+                    item.getQuantity(), net2, tax);
             invoice.addItem(invoiceLine);
+            Assert.assertThat(invoiceLine.getTax(), is(equalTo(net)));
         }
     }
 }
