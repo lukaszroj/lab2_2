@@ -18,4 +18,15 @@ public class MoneyTest {
 
         assertThat(resultMoney,is(EXPECTED_MONEY));
     }
+
+    @Test
+    public void addMoney() {
+        final Money EXPECTED_MONEY = new Money(20);
+        Money money1 = new Money(10);
+        Money money2 = new Money(10);
+
+        Money resultMoney = money1.add(money2);
+
+        assertThat(resultMoney,is(EXPECTED_MONEY));
+    }
 }
