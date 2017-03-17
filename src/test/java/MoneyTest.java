@@ -90,5 +90,14 @@ public class MoneyTest {
         assertThat(result, is(EXPECTED_RESULT));
     }
 
+    @Test
+    public void lessOrEqualsThanMoneyCaseEquals() {
+        final boolean EXPECTED_RESULT = true;
+        Money money1 = new Money(10);
+        Money money2 = new Money(10);
 
+        boolean result = money1.lessOrEquals(money2);
+
+        assertThat(result, is(EXPECTED_RESULT));
+    }
 }
