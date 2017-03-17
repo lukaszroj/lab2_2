@@ -67,4 +67,15 @@ public class MoneyTest {
 
         assertThat(result, is(EXPECTED_RESULT));
     }
+
+    @Test
+    public void lessThanMoney() {
+        final boolean EXPECTED_RESULT = true;
+        Money money1 = new Money(10);
+        Money money2 = new Money(20);
+
+        boolean result = money1.lessThan(money2);
+
+        assertThat(result, is(EXPECTED_RESULT));
+    }
 }
