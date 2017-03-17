@@ -223,4 +223,13 @@ public class MoneyTest {
 
         assertThat(moneyResult, is(true));
     }
+
+    @Test
+    public void greaterThanBothNegativeNum() {
+        Money money = new Money(-10);
+        Money moneyToCompare = new Money(-40);
+        boolean moneyResult = money.greaterThan(moneyToCompare);
+
+        assertThat(moneyResult, is(true));
+    }
 }
