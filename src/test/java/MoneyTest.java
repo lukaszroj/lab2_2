@@ -29,4 +29,12 @@ public class MoneyTest {
 
         assertThat(resultMoney,is(EXPECTED_MONEY));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void addMoneyThrowException() {
+        Money money1 = new Money(10,"USD");
+        Money money2 = new Money(10,"PLN");
+
+        money1.add(money2);
+    }
 }
