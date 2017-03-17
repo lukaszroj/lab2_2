@@ -37,4 +37,15 @@ public class MoneyTest {
 
         money1.add(money2);
     }
+
+    @Test
+    public void substractMoney() {
+        final Money EXPECTED_MONEY = new Money(20);
+        Money money1 = new Money(30);
+        Money money2 = new Money(10);
+
+        Money resultMoney = money1.subtract(money2);
+
+        assertThat(resultMoney,is(EXPECTED_MONEY));
+    }
 }
