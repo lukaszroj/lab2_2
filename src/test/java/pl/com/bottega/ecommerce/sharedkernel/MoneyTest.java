@@ -250,4 +250,13 @@ public class MoneyTest {
 
         assertThat(moneyResult, is(true));
     }
+
+    @Test
+    public void lessThanNegativeNum() {
+        Money money = new Money(10);
+        Money moneyToCompare = new Money(-40);
+        boolean moneyResult = money.lessThan(moneyToCompare);
+
+        assertThat(moneyResult, is(false));
+    }
 }
