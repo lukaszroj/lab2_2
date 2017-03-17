@@ -22,7 +22,7 @@ public class PaymentFactoryTest {
         Money money = new Money(150);
 
         Payment result = paymentFactory.createPayment(clientData, money);
-        Assert.assertThat(result, is(instanceOf(PaymentFactory.class)));
+        Assert.assertThat(result, is(instanceOf(Payment.class)));
     }
 
 }
