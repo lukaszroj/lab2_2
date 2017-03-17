@@ -268,4 +268,13 @@ public class MoneyTest {
 
         assertThat(moneyResult, is(false));
     }
+
+    @Test
+    public void lessThanWithSameCurrency() {
+        Money money = new Money(10, Currency.getInstance("USD"));
+        Money moneyToCompare = new Money(40, Currency.getInstance("USD"));
+        boolean moneyResult = money.lessThan(moneyToCompare);
+
+        assertThat(moneyResult, is(true));
+    }
 }
