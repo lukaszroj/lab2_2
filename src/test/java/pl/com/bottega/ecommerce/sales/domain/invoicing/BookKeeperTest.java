@@ -1,11 +1,14 @@
 package pl.com.bottega.ecommerce.sales.domain.invoicing;
 
+import org.junit.Assert;
 import org.junit.Test;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.ClientData;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.Id;
 import pl.com.bottega.ecommerce.sales.domain.productscatalog.ProductType;
 import pl.com.bottega.ecommerce.sharedkernel.Money;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 /**
@@ -26,6 +29,18 @@ public class BookKeeperTest {
                 Tax result = new Tax(net, description);
                 return result;
             }
+        };
+
+        for (RequestItem item : invoiceRequest.getItems()) {
+            Money net2 = item.getTotalCost();
+            Tax tax = taxPolicy.calculateTax(item.getProductData().getType(),
+                    net2);
+
+            Assert.assertThat(tax.getAmount(), is(equalTo(net)));
+
+            InvoiceLine invoiceLine = new InvoiceLine(item.getProductData(),
+                    item.getQuantity(), net, tax);
+            invoice.addItem(invoiceLine);
         }
     }
 }
