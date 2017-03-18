@@ -18,6 +18,7 @@ public class BookKeeperTest {
     public void testIssuance() throws Exception {
         ClientData clientData = new ClientData(new Id("02"), "Adam");
         InvoiceRequest invoiceRequest = new InvoiceRequest(clientData);
+        BookKeeper bookKeeper = new BookKeeper();
 
         TaxPolicy taxPolicy = new TaxPolicy() {
             public Tax calculateTax(ProductType productType, Money net) {
@@ -25,8 +26,6 @@ public class BookKeeperTest {
                 return tax;
             }
         };
-
-        BookKeeper bookKeeper = new BookKeeper();
 
         Object invoice = bookKeeper.issuance(invoiceRequest, taxPolicy);
         assertThat(invoice, is(instanceOf(Invoice.class)));

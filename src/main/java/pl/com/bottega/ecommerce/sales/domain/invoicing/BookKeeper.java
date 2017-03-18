@@ -22,6 +22,7 @@ public class BookKeeper {
 	private InvoiceFactory invoiceFactory;
 
 	public Invoice issuance(InvoiceRequest invoiceRequest, TaxPolicy taxPolicy) {
+		invoiceFactory  = new InvoiceFactory();
 		Invoice invoice = invoiceFactory.create(invoiceRequest.getClientData());
 
 		for (RequestItem item : invoiceRequest.getItems()) {
