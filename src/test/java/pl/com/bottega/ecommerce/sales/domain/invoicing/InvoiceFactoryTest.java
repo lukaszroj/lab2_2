@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  */
 public class InvoiceFactoryTest {
     @Test
-    public void testClientCreate() throws Exception {
+    public void checkClientCreate() throws Exception {
         InvoiceFactory invoiceFactory = new InvoiceFactory();
         ClientData clientData = new ClientData(new Id("02"), "Adam");
         Object invoice = invoiceFactory.create(clientData);

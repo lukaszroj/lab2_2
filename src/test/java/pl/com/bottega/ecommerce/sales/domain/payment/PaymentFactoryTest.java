@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
  */
 public class PaymentFactoryTest {
     @Test
-    public void createPayment() throws Exception {
+    public void checkCreatePayment() throws Exception {
         ClientData clientData = new ClientData(new Id("02"), "Adam");
         Money money = new Money(12.4);
         PaymentFactory paymentFactory = new PaymentFactory();

@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  */
 public class InvoiceTest {
     @Test
-    public void addItem() throws Exception {
+    public void checkAddItem() throws Exception {
         ProductData product = new ProductData(new Id("0"),new Money(10),"Hamburger", ProductType.FOOD, new Date(2017,3,15));
         Tax tax = new Tax(new Money(6.4), "Vat");
         InvoiceLine invoiceLine = new InvoiceLine(product, 1 , new Money(9.2), tax);

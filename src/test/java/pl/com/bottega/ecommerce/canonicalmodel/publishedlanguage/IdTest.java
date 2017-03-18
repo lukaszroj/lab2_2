@@ -11,13 +11,13 @@ import static org.junit.Assert.*;
  */
 public class IdTest {
     @Test
-    public void generate() throws Exception {
+    public void checkGenerateId() throws Exception {
         Id id = new Id(Id.generate().toString());
         assertThat(id, is(notNullValue()));
     }
 
     @Test
-    public void equals() throws Exception {
+    public void checkEquals() throws Exception {
         Id idFirst = new Id("01");
         Id idSecond = new Id("01");
         assertThat(idFirst.equals(idSecond), is(true));

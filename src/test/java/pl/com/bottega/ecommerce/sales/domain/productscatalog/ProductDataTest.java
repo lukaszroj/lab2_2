@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 public class ProductDataTest {
 
     @Test
-    public void equals() throws Exception {
+    public void checkEquals() throws Exception {
         ProductData product = new ProductData(new Id("0"),new Money(12.4),"Hamburger", ProductType.FOOD, new Date(2017,3,15));
         ProductData theSameProduct = new ProductData(new Id("0"),new Money(12.4),"Hamburger", ProductType.FOOD, new Date(2017,3,15));
         assertThat(product.equals(theSameProduct), is(true));

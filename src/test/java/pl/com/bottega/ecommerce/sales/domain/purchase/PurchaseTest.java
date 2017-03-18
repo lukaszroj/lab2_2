@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  */
 public class PurchaseTest {
     @Test
-    public void confirm() throws Exception {
+    public void checkConfirm() throws Exception {
         List<PurchaseItem> items = null;
         ClientData clientData = new ClientData(new Id("02"), "Adam");
         Money money = new Money(12.4);
@@ -29,7 +29,7 @@ public class PurchaseTest {
     }
 
     @Test
-    public void isPaid() throws Exception {
+    public void checkIsPaid() throws Exception {
         List<PurchaseItem> items = null;
         ClientData clientData = new ClientData(new Id("02"), "Adam");
         Money money = new Money(12.4);

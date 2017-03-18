@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
  */
 public class InvoiceRequestTest {
     @Test
-    public void add() throws Exception {
+    public void checkAddOfInvoiceRequest() throws Exception {
         ClientData clientData = new ClientData(new Id("02"), "Adam");
         InvoiceRequest invoiceRequest = new InvoiceRequest(clientData);
         ProductData product = new ProductData(new Id("0"),new Money(12.4),"Hamburger", ProductType.FOOD, new Date(2017,3,15));
