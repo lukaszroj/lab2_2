@@ -79,6 +79,21 @@ public class MoneyTests {
 		Money expectedResult = new Money(100, Currency.getInstance("PLN"));
 		Assert.assertThat(money.add(new Money(90, Currency.getInstance("USD"))), is(equalTo(expectedResult)));		
 	}
+	
+	@Test
+	public void testSubstractSameCurrency() {
+		Money money = new Money(100, Currency.getInstance("PLN"));
+		Money expectedResult = new Money(10, Currency.getInstance("PLN"));
+		Assert.assertThat(money.subtract(new Money(90, Currency.getInstance("PLN"))), is(equalTo(expectedResult)));		
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testSubstractDifferentCurrency() {
+		Money money = new Money(10, Currency.getInstance("PLN"));
+		Money expectedResult = new Money(100, Currency.getInstance("PLN"));
+		Assert.assertThat(money.subtract(new Money(90, Currency.getInstance("USD"))), is(equalTo(expectedResult)));		
+	}
+
 
 
 }
