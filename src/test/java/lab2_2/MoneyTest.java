@@ -155,4 +155,11 @@ public class MoneyTest {
 		Money testMoney = new Money(234, Currency.getInstance("EUR"));
 		assertThat(testMoney.getCurrencyCode(), is(equalTo("EUR")));
 	}
+	
+	@Test
+	public void getCurrency() {
+		Money testMoney = new Money(234, Currency.getInstance("EUR"));
+		Currency result = testMoney.getCurrency();
+		assertThat(result, is(equalTo(Currency.getInstance("EUR"))));
+	}
 }
