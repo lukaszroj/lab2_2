@@ -39,4 +39,31 @@ public class MoneyTests {
 		Money expectedResult = new Money(0);
 		Assert.assertThat(money.multiplyBy(0), is(equalTo(expectedResult)));		
 	}
+	
+	@Test
+	public void testMultiplyByPositiveBigDecimal() {
+		Money money = new Money(10);
+		Money expectedResult = new Money(100);
+		Assert.assertThat(money.multiplyBy(new BigDecimal(10.0)), is(equalTo(expectedResult)));		
+	}	
+	@Test
+	public void testMultiplyByNegativeBigDecimal() {
+		Money money = new Money(10);
+		Money expectedResult = new Money(-100);
+		Assert.assertThat(money.multiplyBy(new BigDecimal(-10.0)), is(equalTo(expectedResult)));		
+	}	
+	@Test
+	public void testMultiplyByWithSameCurrencyBigDecimal() {
+		Money money = new Money(10, Currency.getInstance("PLN"));
+		Money expectedResult = new Money(100, Currency.getInstance("PLN"));
+		Assert.assertThat(money.multiplyBy(new BigDecimal(10.0)), is(equalTo(expectedResult)));		
+	}
+	
+	@Test
+	public void testMultiplyByZeroBigDecimal() {
+		Money money = new Money(10);
+		Money expectedResult = new Money(0);
+		Assert.assertThat(money.multiplyBy(new BigDecimal(0.0)), is(equalTo(expectedResult)));		
+	}
+
 }
