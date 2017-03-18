@@ -105,5 +105,43 @@ public class MoneyTests {
 		Money money = new Money(10, Currency.getInstance("PLN"));
 		Assert.assertThat(money.getCurrencyCode(), IsNot.not(equalTo(Currency.getInstance("USD").getCurrencyCode())));		
 	}
+	
+	@Test
+	public void testGreaterThanTrue() {
+		Money money = new Money(10, Currency.getInstance("PLN"));
+		Assert.assertThat(money.greaterThan(new Money(5, Currency.getInstance("PLN"))), is(true));		
+	}
+	
+	@Test
+	public void testGreaterThanFalse() {
+		Money money = new Money(10, Currency.getInstance("PLN"));
+		Assert.assertThat(money.greaterThan(new Money(15, Currency.getInstance("PLN"))), is(false));
+	}
+	
+	@Test
+	public void testLessThanTrue() {
+		Money money = new Money(10, Currency.getInstance("PLN"));
+		Assert.assertThat(money.lessThan(new Money(15, Currency.getInstance("PLN"))), is(true));		
+	}
+	
+	@Test
+	public void testLessThanFalse() {
+		Money money = new Money(10, Currency.getInstance("PLN"));
+		Assert.assertThat(money.lessThan(new Money(5, Currency.getInstance("PLN"))), is(false));
+	}
+	
+	@Test
+	public void testLessOrEqualsThanTrue() {
+		Money money = new Money(10, Currency.getInstance("PLN"));
+		Assert.assertThat(money.lessOrEquals(new Money(15, Currency.getInstance("PLN"))), is(true));
+		Assert.assertThat(money.lessOrEquals(new Money(10, Currency.getInstance("PLN"))), is(true));
+	}
+	
+	@Test
+	public void testLessOrEqualsThanFalse() {
+		Money money = new Money(10, Currency.getInstance("PLN"));
+		Assert.assertThat(money.lessOrEquals(new Money(5, Currency.getInstance("PLN"))), is(false));
+	}
+
 
 }
