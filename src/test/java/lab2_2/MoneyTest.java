@@ -121,4 +121,11 @@ public class MoneyTest {
 		Money reality = new Money(-200);
 		assertThat(reality.subtract(new Money(-100)), is(equalTo(expectation)));
 	}
+	
+	@Test
+	public void greaterThan() {
+		Money testMoney = new Money(123);
+		Money testMoney2 = new Money(234);
+		assertThat(testMoney2.greaterThan(testMoney), is(equalTo(true)));
+	}
 }
