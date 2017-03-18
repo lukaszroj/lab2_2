@@ -128,4 +128,11 @@ public class MoneyTest {
 		Money testMoney2 = new Money(234);
 		assertThat(testMoney2.greaterThan(testMoney), is(equalTo(true)));
 	}
+	
+	@Test
+	public void lessThan() {
+		Money testMoney = new Money(123);
+		Money testMoney2 = new Money(234);
+		assertThat(testMoney.lessThan(testMoney2), is(equalTo(true)));
+	}
 }
