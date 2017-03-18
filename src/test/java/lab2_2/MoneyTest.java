@@ -149,4 +149,10 @@ public class MoneyTest {
 		Money testMoney2 = new Money(234);
 		assertThat(testMoney.lessOrEquals(testMoney2), is(equalTo(true)));
 	}
+	
+	@Test
+	public void currencyCode() {
+		Money testMoney = new Money(234, Currency.getInstance("EUR"));
+		assertThat(testMoney.getCurrencyCode(), is(equalTo("EUR")));
+	}
 }
