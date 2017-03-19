@@ -3,6 +3,7 @@ package pl.com.bottega.ecommerce.sharedkernel;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 /**
@@ -58,5 +59,23 @@ public class MoneyTest {
         Money money2 = new Money(12.3, "PLN");
 
         money1.subtract(money2);
+    }
+
+    @Test
+    public void testGreaterThan_sameCurrency() throws Exception {
+        Money money1 = new Money( 20);
+        Money money2 = new Money(5);
+
+        boolean isGreater = money1.greaterThan(money2);
+
+        assertThat(isGreater, is (true));
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void testGreaterThan_diffCurrency() throws Exception {
+        Money money1 = new Money( 12.9, "EUR");
+        Money money2 = new Money(1, "PLN");
+
+        money1.greaterThan(money2);
     }
 }
