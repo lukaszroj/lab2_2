@@ -112,4 +112,15 @@ public class MoneyTest {
         Assert.assertThat(result, is(equalTo(expected)));
         Assert.assertThat(result.getCurrencyCode(), allOf(is(equalTo(money1.getCurrencyCode())), is(equalTo(money2.getCurrencyCode()))));
     }
+
+    @Test
+    public void subtractPositiveAndNegativeValuesOfTheSameCurrency() {
+        Money money1 = new Money(-1000);
+        Money money2 = new Money(2000);
+        Money result = money1.subtract(money2);
+        Money expected = new Money(-3000);
+
+        Assert.assertThat(result, is(equalTo(expected)));
+        Assert.assertThat(result.getCurrencyCode(), allOf(is(equalTo(money1.getCurrencyCode())), is(equalTo(money2.getCurrencyCode()))));
+    }
 }
