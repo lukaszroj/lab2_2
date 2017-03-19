@@ -8,6 +8,7 @@ import java.util.List;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.ClientData;
 
 public class InvoiceRequest {
+	
 	private ClientData client;	
 	private List<RequestItem> items = new ArrayList<RequestItem>();
 	

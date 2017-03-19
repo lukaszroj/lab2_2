@@ -24,13 +24,9 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
 public class InvoiceLine {
 
 	private ProductData product;
-
 	private int quantity;
-
 	private Money net;
-
 	private Money gros;
-
 	private Tax tax;
 
 	InvoiceLine(ProductData product, int quantity, Money net, Tax tax) {
