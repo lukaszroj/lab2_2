@@ -1,7 +1,5 @@
 package lab2_2;
 
-import static org.junit.Assert.*;
-
 import java.math.BigDecimal;
 
 import static org.hamcrest.CoreMatchers.*;
