@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 public class MoneyTest {
 
 	@Test
-	public void multiplyByPossitive() {
+	public void multiplyByPositive() {
 		Money money = new Money(50);
 		Money expected = new Money(150);
 		Money result = money.multiplyBy(3);
@@ -53,42 +53,80 @@ public class MoneyTest {
 	}
 
 	@Test
-	public void add() throws Exception {
+	public void addPositive() {
+		Money m1 = new Money(50);
+		Money m2 = new Money(100);
+		Money expected = new Money(150);
+		Money result = m1.add(m2);
+		assertThat(result, is(equalTo(expected)));
+	}
+
+	@Test
+	public void addPositiveAndNegativeResultAboveZero() {
+		Money m1 = new Money(100);
+		Money m2 = new Money(-50);
+		Money expected = new Money(50);
+		Money result = m1.add(m2);
+		assertThat(result, is(equalTo(expected)));
+	}
+
+	@Test
+	public void addPositiveAndNegativeResultBelowZero() {
+		Money m1 = new Money(50);
+		Money m2 = new Money(-100);
+		Money expected = new Money(-50);
+		Money result = m1.add(m2);
+		assertThat(result, is(equalTo(expected)));
+	}
+
+	@Test
+	public void addNegative() {
+		Money m1 = new Money(-50);
+		Money m2 = new Money(-100);
+		Money expected = new Money(-150);
+		Money result = m1.add(m2);
+		assertThat(result, is(equalTo(expected)));
+	}
+
+	@Test (expected = IllegalArgumentException.class)
+	public void addDifferentCurrency() {
+		Money m1 = new Money(50, Currency.getInstance("PLN"));
+		Money m2 = new Money(100, Currency.getInstance("CZK"));
+		Money result = m1.add(m2);
+	}
+
+	@Test
+	public void subtract() {
 
 	}
 
 	@Test
-	public void subtract() throws Exception {
+	public void getCurrencyCode() {
 
 	}
 
 	@Test
-	public void getCurrencyCode() throws Exception {
+	public void getCurrency() {
 
 	}
 
 	@Test
-	public void getCurrency() throws Exception {
+	public void greaterThan() {
 
 	}
 
 	@Test
-	public void greaterThan() throws Exception {
+	public void lessThan() {
 
 	}
 
 	@Test
-	public void lessThan() throws Exception {
+	public void lessOrEquals() {
 
 	}
 
 	@Test
-	public void lessOrEquals() throws Exception {
-
-	}
-
-	@Test
-	public void equals() throws Exception {
+	public void equals() {
 
 	}
 
