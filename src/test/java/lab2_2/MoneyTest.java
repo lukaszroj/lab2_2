@@ -72,4 +72,17 @@ public class MoneyTest {
 		Assert.assertThat(money.lessThan(lessMoney), is(false));
 		Assert.assertThat(money.lessThan(moreMoney), is(true));
 	}
+	
+	@Test
+	public void testLessOrEquals() {
+		
+		Money money = new Money(10);
+		Money lessMoney = new Money(5);
+		Money sameMoney = new Money(10);
+		Money moreMoney = new Money(15);
+		
+		Assert.assertThat(money.lessOrEquals(lessMoney), is(false));
+		Assert.assertThat(money.lessOrEquals(sameMoney), is(true));
+		Assert.assertThat(money.lessOrEquals(moreMoney), is(true));
+	}
 }
