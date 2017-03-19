@@ -30,4 +30,14 @@ public class MoneyTest {
 		
 		Assert.assertThat(money.multiplyBy(new BigDecimal(4)), is(equalTo(expectedMoney)));
 	}
+	
+	@Test
+	public void testAdd() {
+		
+		Money money = new Money(5);
+		Money extraMoney = new Money(15);
+		Money expectedMoney = new Money(20);
+		
+		Assert.assertThat(money.add(extraMoney), is(equalTo(expectedMoney)));
+	}
 }
