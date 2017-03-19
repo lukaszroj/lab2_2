@@ -70,7 +70,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void testSubtractCompatibleMoney() {
+    public void testSubtractNegativeCompatibleMoney() {
         //Arrange
         Money money = new Money(-10);
         Money money1 = new Money(-10);
@@ -89,4 +89,19 @@ public class MoneyTest {
         //Act
         Money result = money.subtract(money1);
     }
+
+    @Test
+    public void testSubtractCompatibleMoney() {
+        //Arrange
+        Money money = new Money(10000);
+        Money money1 = new Money(10);
+        Money expected = new Money(9990);
+        //Act
+        Money result = money.subtract(money1);
+        //Assert
+        assertThat(result, is(expected));
+    }
+
+
+
 }
