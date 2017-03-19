@@ -3,7 +3,7 @@ package pl.com.bottega.ecommerce.sharedkernel;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * User: Klaudia
@@ -14,10 +14,20 @@ public class MoneyTest {
         //Arrange
         Money money = new Money(-10);
         Money money1 = new Money(-10);
-        //Act
         Money expected = new Money(-20);
+        //Act
+        Money result = money.add(money1);
         //Assert
-        assertThat(money.add(money1), is(expected));
+        assertThat(result, is(expected));
+    }
+
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddAnotherCurrencyIllegalArgumentException() throws Exception {
+        //Arrange
+        Money money = new Money(10, "PL");
+        Money money1 = new Money(10);
+        Money result = money.add(money1);
     }
 
 }
