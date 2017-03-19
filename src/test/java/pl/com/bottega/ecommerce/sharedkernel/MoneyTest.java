@@ -138,34 +138,4 @@ public class MoneyTest {
 		Money result = m1.subtract(m2);
 	}
 
-	@Test
-	public void getCurrencyCode() {
-
-	}
-
-	@Test
-	public void getCurrency() {
-
-	}
-
-	@Test
-	public void greaterThan() {
-
-	}
-
-	@Test
-	public void lessThan() {
-
-	}
-
-	@Test
-	public void lessOrEquals() {
-
-	}
-
-	@Test
-	public void equals() {
-
-	}
-
 }
