@@ -19,4 +19,16 @@ public class MoneyTest {
         assertThat(multipled, equalTo(new Money(100, "USD")));
         assertThat(multipled.getCurrencyCode(), equalTo("USD"));
     }
+
+    @Test
+    public void testAdd_sameCurrency() throws Exception {
+        Money money1 = new Money( 75);
+        Money money2 = new Money(25);
+
+        Money actualSum = money1.add(money2);
+
+        Money expected = new Money(100);
+
+        assertThat(actualSum, equalTo(expected));
+    }
 }
