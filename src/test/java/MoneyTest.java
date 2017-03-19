@@ -42,4 +42,12 @@ public class MoneyTest {
 
         Assert.assertThat(result.getCurrencyCode(), is(equalTo(money.getCurrencyCode())));
     }
+
+    @Test
+    public void checkDefaultCurrencyCodeAfterMultiplyingIsTheSameThanEalier() {
+        Money money = new Money(1000);
+        Money result = money.multiplyBy(2);
+
+        Assert.assertThat(result.getCurrencyCode(), is(equalTo(money.getCurrencyCode())));
+    }
 }
