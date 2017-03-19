@@ -15,12 +15,21 @@ public class MoneyTests {
     }
     @Test
     public void multiplyByBigDecimalMultiplier(){
+        Money expected = new Money(new BigDecimal("1000"));
         Money actual = MONEY.multiplyBy(new BigDecimal("10"));
-        Assert.assertEquals(new Money(new BigDecimal("1000")),actual);
+        Assert.assertEquals(expected,actual);
     }
     @Test
     public void multiplyByDoubleMultiplier(){
+        Money expected = new Money(new BigDecimal("1000"));
         Money actual = MONEY.multiplyBy(10.0);
-        Assert.assertEquals(new Money(new BigDecimal("1000")),actual);
+        Assert.assertEquals(expected ,actual);
+    }
+    @Test
+    public void addTest(){
+        Money expected = new Money(new BigDecimal("200"));
+        Money money2 = new Money(new BigDecimal("100"));
+        Money actual = MONEY.add(money2);
+        Assert.assertEquals(expected,actual);
     }
 }
