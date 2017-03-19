@@ -123,4 +123,11 @@ public class MoneyTest {
         Assert.assertThat(result, is(equalTo(expected)));
         Assert.assertThat(result.getCurrencyCode(), allOf(is(equalTo(money1.getCurrencyCode())), is(equalTo(money2.getCurrencyCode()))));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void throwExceptionThenSubtractTwoValuesOfDifferentCurrencies() {
+        Money money1 = new Money(1000, Currency.getInstance("EUR"));
+        Money money2 = new Money(1000, Currency.getInstance("PLN"));
+        Money result = money1.subtract(money2);
+    }
 }
