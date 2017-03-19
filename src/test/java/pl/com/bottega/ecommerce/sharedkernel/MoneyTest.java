@@ -2,9 +2,11 @@ package pl.com.bottega.ecommerce.sharedkernel;
 
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.Currency;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -102,6 +104,16 @@ public class MoneyTest {
         assertThat(result, is(expected));
     }
 
-
+    @Test
+    public void testMultiplyBy(){
+        //Arrange
+        Money money = new Money(1000, "PL");
+        BigDecimal multiplier = new BigDecimal(2);
+        Money expected = new Money(2000, "PL");
+        //Act
+        Money result = money.multiplyBy(multiplier);
+        //Assert
+        assertThat(result, is(expected));
+    }
 
 }
