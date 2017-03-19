@@ -1,4 +1,4 @@
-package lab2_2;
+package pl.com.bottega.ecommerce;
 
 import static org.hamcrest.CoreMatchers.*;
 

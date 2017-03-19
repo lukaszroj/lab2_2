@@ -1,4 +1,4 @@
-package lab2_2;
+package pl.com.bottega.ecommerce;
 
 import java.math.BigDecimal;
 
