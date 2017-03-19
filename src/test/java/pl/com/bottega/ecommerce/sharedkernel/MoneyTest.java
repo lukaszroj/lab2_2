@@ -5,8 +5,8 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.util.Currency;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -113,7 +113,31 @@ public class MoneyTest {
         //Act
         Money result = money.multiplyBy(multiplier);
         //Assert
-        assertThat(result, is(expected));
+        assertThat(result, is(equalTo(expected)));
+    }
+
+    @Test
+    public void testMultiplyByZero(){
+        //Arrange
+        Money money = new Money(1000);
+        BigDecimal multiplier = new BigDecimal(0);
+        Money expected = new Money(0);
+        //Act
+        Money result = money.multiplyBy(multiplier);
+        //Assert
+        assertThat(result, is(equalTo(expected)));
+    }
+
+    @Test
+    public void testMultiplyByNative(){
+        //Arrange
+        Money money = new Money(1000);
+        BigDecimal multiplier = new BigDecimal(-2);
+        Money expected = new Money(-2000);
+        //Act
+        Money result = money.multiplyBy(multiplier);
+        //Assert
+        assertThat(result, is(equalTo(expected)));
     }
 
 }
