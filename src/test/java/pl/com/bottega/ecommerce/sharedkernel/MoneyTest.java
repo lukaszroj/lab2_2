@@ -31,4 +31,12 @@ public class MoneyTest {
 
         assertThat(actualSum, equalTo(expected));
     }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void testAdd_diffCurrency() throws Exception {
+        Money money1 = new Money( 43, "EUR");
+        Money money2 = new Money(13.7, "PLN");
+
+        money1.add(money2);
+    }
 }
