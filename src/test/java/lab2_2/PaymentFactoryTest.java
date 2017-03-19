@@ -21,6 +21,7 @@ public class PaymentFactoryTest {
 		Payment payment = paymentFactory.createPayment(clientData, new Money(100));
 		
 		Assert.assertThat(payment, notNullValue());
+		Assert.assertThat(payment, is(instanceOf(Payment.class)));
 	}
 
 }
