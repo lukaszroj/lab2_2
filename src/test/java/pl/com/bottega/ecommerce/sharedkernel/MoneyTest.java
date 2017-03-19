@@ -58,7 +58,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void testAddDummyMoney(){
+    public void testAddDummyMoney() {
         //Arrange
         Money dummyMoney = new Money();
         Money money = new Money(10);
@@ -67,5 +67,26 @@ public class MoneyTest {
         Money result = money.add(dummyMoney);
         //Assert
         assertThat(result, is(expected));
+    }
+
+    @Test
+    public void testSubtractCompatibleMoney() {
+        //Arrange
+        Money money = new Money(-10);
+        Money money1 = new Money(-10);
+        Money expected = new Money(0);
+        //Act
+        Money result = money.subtract(money1);
+        //Assert
+        assertThat(result, is(expected));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSubtractOtherCorrenciesIllegalArgumentException() {
+        //Arrange
+        Money money = new Money(-10, Currency.getInstance("PL"));
+        Money money1 = new Money(-10);
+        //Act
+        Money result = money.subtract(money1);
     }
 }
