@@ -37,4 +37,16 @@ public class MoneyTests {
         Money money2 = new Money(new BigDecimal("100"),Currency.getInstance("PLN"));
         Money actual = MONEY.add(money2);
     }
+    @Test
+    public void subtractTest(){
+        Money expected = new Money(new BigDecimal("0"));
+        Money money2 = new Money(new BigDecimal("100"));
+        Money actual = MONEY.subtract(money2);
+        Assert.assertEquals(expected,actual);
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void subtractTestCurrencyMismatch(){
+        Money money2 = new Money(new BigDecimal("100"),Currency.getInstance("PLN"));
+        Money actual = MONEY.subtract(money2);
+    }
 }
