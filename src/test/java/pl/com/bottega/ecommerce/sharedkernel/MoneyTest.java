@@ -78,4 +78,22 @@ public class MoneyTest {
 
         money1.greaterThan(money2);
     }
+
+    @Test
+    public void testLessThan_sameCurrency() throws Exception {
+        Money money1 = new Money( 7);
+        Money money2 = new Money(15);
+
+        boolean isLess = money1.lessThan(money2);
+
+        assertThat(isLess, is (true));
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void testLessThan_diffCurrency() throws Exception {
+        Money money1 = new Money( 2, "EUR");
+        Money money2 = new Money(15, "PLN");
+
+        money1.lessThan(money2);
+    }
 }
