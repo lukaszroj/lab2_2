@@ -40,4 +40,14 @@ public class MoneyTest {
 		
 		Assert.assertThat(money.add(extraMoney), is(equalTo(expectedMoney)));
 	}
+	
+	@Test
+	public void testSubstract() {
+		
+		Money money = new Money(25);
+		Money takenMoney = new Money(5);
+		Money expectedMoney = new Money(20);
+		
+		Assert.assertThat(money.subtract(takenMoney), is(equalTo(expectedMoney)));
+	}
 }
