@@ -25,17 +25,10 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
 
 
 public class Invoice  {
-
-
 	private ClientData client;
-
-
 	private Money net;
-
 	private Money gros;
-
 	private List<InvoiceLine> items;
-
 
 	private Id id;
 
