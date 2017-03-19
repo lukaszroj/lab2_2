@@ -96,4 +96,40 @@ public class MoneyTest {
 
         money1.lessThan(money2);
     }
+
+    @Test
+    public void testLessEqual_less_sameCurrency() throws Exception {
+        Money money1 = new Money( 8);
+        Money money2 = new Money(15.6);
+
+        boolean isLess = money1.lessOrEquals(money2);
+
+        assertThat(isLess, is (true));
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void testLessEqual_less_diffCurrency() throws Exception {
+        Money money1 = new Money( 2.3, "EUR");
+        Money money2 = new Money(125, "USD");
+
+        money1.lessOrEquals(money2);
+    }
+
+    @Test
+    public void testLessEqual_equal_sameCurrency() throws Exception {
+        Money money1 = new Money( 8.2);
+        Money money2 = new Money(8.2);
+
+        boolean isEqual = money1.lessOrEquals(money2);
+
+        assertThat(isEqual, is (true));
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void testLessEqual_equal_diffCurrency() throws Exception {
+        Money money1 = new Money( 123, "EUR");
+        Money money2 = new Money(123, "USD");
+
+        money1.lessOrEquals(money2);
+    }
 }
