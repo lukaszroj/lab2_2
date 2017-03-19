@@ -50,4 +50,15 @@ public class MoneyTest {
 
         Assert.assertThat(result.getCurrencyCode(), is(equalTo(money.getCurrencyCode())));
     }
+
+    @Test
+    public void addingTwoPositiveValuesOfTheSameCurrency() {
+        Money money1 = new Money(1000);
+        Money money2 = new Money(1000);
+        Money result = money1.add(money2);
+        Money expected = new Money(2000);
+
+        Assert.assertThat(result, is(equalTo(expected)));
+        Assert.assertThat(result.getCurrencyCode(), allOf(is(equalTo(money1.getCurrencyCode())), is(equalTo(money2.getCurrencyCode()))));
+    }
 }
