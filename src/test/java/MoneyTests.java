@@ -28,25 +28,30 @@ public class MoneyTests {
     @Test
     public void addTest(){
         Money expected = new Money(new BigDecimal("200"));
-        Money money2 = new Money(new BigDecimal("100"));
-        Money actual = MONEY.add(money2);
+        Money otherMoney = new Money(new BigDecimal("100"));
+        Money actual = MONEY.add(otherMoney);
         Assert.assertEquals(expected,actual);
     }
     @Test(expected = IllegalArgumentException.class)
     public void addTestCurrencyMismatch(){
-        Money money2 = new Money(new BigDecimal("100"),Currency.getInstance("PLN"));
-        Money actual = MONEY.add(money2);
+        Money otherMoney = new Money(new BigDecimal("100"),Currency.getInstance("PLN"));
+        Money actual = MONEY.add(otherMoney);
     }
     @Test
     public void subtractTest(){
         Money expected = new Money(new BigDecimal("0"));
-        Money money2 = new Money(new BigDecimal("100"));
-        Money actual = MONEY.subtract(money2);
+        Money otherMoney = new Money(new BigDecimal("100"));
+        Money actual = MONEY.subtract(otherMoney);
         Assert.assertEquals(expected,actual);
     }
     @Test(expected = IllegalArgumentException.class)
     public void subtractTestCurrencyMismatch(){
-        Money money2 = new Money(new BigDecimal("100"),Currency.getInstance("PLN"));
-        Money actual = MONEY.subtract(money2);
+        Money otherMoney = new Money(new BigDecimal("100"),Currency.getInstance("PLN"));
+        Money actual = MONEY.subtract(otherMoney);
+    }
+    @Test
+    public void greaterThanTest(){
+        Money otherMoney = new Money(new BigDecimal("10"));
+        Assert.assertTrue(MONEY.greaterThan(otherMoney));
     }
 }
