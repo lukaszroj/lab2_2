@@ -20,6 +20,7 @@ public class InvoiceFactoryTest {
 		
 		Invoice invoice = invoiceFactory.create(clientData);
 		Assert.assertThat(invoice, notNullValue());
+		Assert.assertThat(invoice, is(instanceOf(Invoice.class)));
 	}
 
 }
