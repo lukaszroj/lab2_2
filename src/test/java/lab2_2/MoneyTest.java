@@ -1,6 +1,9 @@
 package lab2_2;
 
 import static org.junit.Assert.*;
+
+import java.math.BigDecimal;
+
 import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Assert;
@@ -18,5 +21,13 @@ public class MoneyTest {
 		
 		Assert.assertThat(money.multiplyBy(4), is(equalTo(expectedMoney)));
 	}
-
+	
+	@Test
+	public void testMultiplyByBigDecimal() {
+		
+		Money money = new Money(5);
+		Money expectedMoney = new Money(20);
+		
+		Assert.assertThat(money.multiplyBy(new BigDecimal(4)), is(equalTo(expectedMoney)));
+	}
 }
