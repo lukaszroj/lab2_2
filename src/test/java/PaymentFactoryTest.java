@@ -2,8 +2,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.ClientData;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.Id;
-import pl.com.bottega.ecommerce.sales.domain.invoicing.Invoice;
-import pl.com.bottega.ecommerce.sales.domain.invoicing.InvoiceFactory;
 import pl.com.bottega.ecommerce.sales.domain.payment.Payment;
 import pl.com.bottega.ecommerce.sales.domain.payment.PaymentFactory;
 import pl.com.bottega.ecommerce.sharedkernel.Money;
@@ -16,7 +14,7 @@ import static org.hamcrest.Matchers.is;
  */
 public class PaymentFactoryTest {
     @Test
-    public void IfInvoiceFactoryCreateReturnsInvoice(){
+    public void IfInvoiceFactoryCreateInvoice(){
         PaymentFactory paymentFactory = new PaymentFactory();
         ClientData clientData = new ClientData(Id.generate(), "Patryk");
         Object object = paymentFactory.createPayment(clientData,new Money(20));

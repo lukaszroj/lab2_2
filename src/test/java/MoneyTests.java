@@ -59,4 +59,12 @@ public class MoneyTests {
         Money otherMoney = new Money(new BigDecimal("200"));
         Assert.assertTrue(MONEY.lessThan(otherMoney));
     }
+    @Test
+    public void lessOrEqualsTest(){
+        Money otherMoney = new Money(new BigDecimal("200"));
+        Assert.assertTrue(MONEY.lessOrEquals(otherMoney));
+        otherMoney = new Money(new BigDecimal("100"));
+        Assert.assertTrue(MONEY.lessOrEquals(otherMoney));
+
+    }
 }
