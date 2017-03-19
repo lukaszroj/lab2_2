@@ -32,4 +32,9 @@ public class MoneyTests {
         Money actual = MONEY.add(money2);
         Assert.assertEquals(expected,actual);
     }
+    @Test(expected = IllegalArgumentException.class)
+    public void addTestCurrencyMismatch(){
+        Money money2 = new Money(new BigDecimal("100"),Currency.getInstance("PLN"));
+        Money actual = MONEY.add(money2);
+    }
 }
