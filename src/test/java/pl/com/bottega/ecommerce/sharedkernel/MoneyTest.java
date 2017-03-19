@@ -2,6 +2,8 @@ package pl.com.bottega.ecommerce.sharedkernel;
 
 import org.junit.Test;
 
+import java.util.Currency;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -25,7 +27,7 @@ public class MoneyTest {
     @Test(expected = IllegalArgumentException.class)
     public void testAddAnotherCurrencyIllegalArgumentException() throws Exception {
         //Arrange
-        Money money = new Money(10, "PL");
+        Money money = new Money(10, Currency.getInstance("PL"));
         Money money1 = new Money(10);
         Money result = money.add(money1);
     }
@@ -43,4 +45,27 @@ public class MoneyTest {
         assertThat(result, is(expected));
     }
 
+    @Test
+    public void testAddCompatibleMoneyIsZero() throws Exception {
+        //Arrange
+        Money money = new Money(0);
+        Money money1 = new Money(10);
+        Money expected = new Money(10);
+        //Act
+        Money result = money.add(money1);
+        //Assert
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void testAddDummyMoney(){
+        //Arrange
+        Money dummyMoney = new Money();
+        Money money = new Money(10);
+        Money expected = new Money(10);
+        //Act
+        Money result = money.add(dummyMoney);
+        //Assert
+        assertThat(result, is(expected));
+    }
 }
