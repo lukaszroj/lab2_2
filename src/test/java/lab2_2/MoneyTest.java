@@ -50,4 +50,15 @@ public class MoneyTest {
 		
 		Assert.assertThat(money.subtract(takenMoney), is(equalTo(expectedMoney)));
 	}
+	
+	@Test
+	public void testGreaterThan() {
+		
+		Money money = new Money(10);
+		Money lessMoney = new Money(5);
+		Money moreMoney = new Money(15);
+		
+		Assert.assertThat(money.greaterThan(lessMoney), is(true));
+		Assert.assertThat(money.greaterThan(moreMoney), is(false));
+	}
 }
