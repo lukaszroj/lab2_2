@@ -24,4 +24,12 @@ public class MoneyTest {
 
         Assert.assertThat(money, is(equalTo(expected)));
     }
+
+    @Test
+    public void mutliplyByZero() {
+        Money money = new Money(1000).multiplyBy(0);
+        Money expected = new Money(0);
+
+        Assert.assertThat(money, is(equalTo(expected)));
+    }
 }
