@@ -42,4 +42,12 @@ public class MoneyTest {
 		assertThat(result, is(testValue));
 	}
 	
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddMethodToThrowExceotion() {
+		Money result = new Money(100,"USD");
+		final Money moneyToAdd = new Money(300);
+		
+		result = result.add(moneyToAdd);
+		
+	}
 }
