@@ -61,4 +61,24 @@ public class InvoiceLine {
 	public Tax getTax() {
 		return tax;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		InvoiceLine that = (InvoiceLine) o;
+
+		if (product != null ? !product.equals(that.product) : that.product != null) return false;
+		if (net != null ? !net.equals(that.net) : that.net != null) return false;
+		return gros != null ? gros.equals(that.gros) : that.gros == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = product != null ? product.hashCode() : 0;
+		result = 31 * result + (net != null ? net.hashCode() : 0);
+		result = 31 * result + (gros != null ? gros.hashCode() : 0);
+		return result;
+	}
 }

@@ -26,11 +26,11 @@ public class Money {
 
 	public static final Money ZERO = new Money(BigDecimal.ZERO);
 
-	private BigDecimal denomination;
+	private BigDecimal denomination = BigDecimal.ZERO;
 
 	private String currencyCode;
 
-	protected Money() {
+	public Money() {
 	}
 
 	public Money(BigDecimal denomination, Currency currency) {
