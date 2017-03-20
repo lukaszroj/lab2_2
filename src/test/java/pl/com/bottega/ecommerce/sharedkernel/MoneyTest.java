@@ -93,13 +93,15 @@ public class MoneyTest {
         assertThat(actual, is(true));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void negativeGreaterThan() throws Exception {
 
         money = new Money(secondValue);
         anotherMoney = new Money(firstValue);
 
         actual = anotherMoney.greaterThan(money);
+
+        assertThat(actual, is(false));
     }
 
 
