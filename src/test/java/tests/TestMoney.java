@@ -80,4 +80,10 @@ public class TestMoney {
         final Money EUR25 = new Money(25, Currency.getInstance("EUR"));
         assertThat(EUR10.add(EUR15), is(EUR25));
     }
+    
+    @Test
+    public void testSumDollar(){
+        final Money USD31 = new Money(31, Currency.getInstance("USD"));
+        assertThat(USD18.add(USD13), is(USD31));
+    }
 }
