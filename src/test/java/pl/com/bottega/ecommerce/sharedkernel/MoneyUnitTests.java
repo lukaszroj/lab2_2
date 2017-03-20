@@ -32,4 +32,12 @@ public class MoneyUnitTests {
 		assertThat(money.equals(positiveResult), is(true));
 	}
 	
+	@Test
+	public void addingTwoPositiveNumbers() {
+		Money money = new Money(100).add(new Money(100));
+		Money positiveResult = new Money(200);
+		
+		assertThat(money.equals(positiveResult), is(true));
+	}
+	
 }
