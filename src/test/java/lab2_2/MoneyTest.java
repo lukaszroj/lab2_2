@@ -90,5 +90,31 @@ public class MoneyTest {
 		Assert.assertThat(actualMoney.lessThan(expectedMoney), is(not(true)));
 	}
 	
+	@Test
+	public void testLessOrEqualsTrueLess() {
+		
+		actualMoney = new Money(50);
+		expectedMoney = new Money(60);
+		
+		Assert.assertThat(actualMoney.lessOrEquals(expectedMoney), is(true));
+	}
+	
+	@Test
+	public void testLessOrEqualsTrueEquals() {
+		
+		actualMoney = new Money(50);
+		expectedMoney = new Money(50);
+		
+		Assert.assertThat(actualMoney.lessOrEquals(expectedMoney), is(true));
+	}
+	
+	@Test
+	public void testLessOrEqualsFalse() {
+		
+		actualMoney = new Money(50);
+		expectedMoney = new Money(40);
+		
+		Assert.assertThat(actualMoney.lessOrEquals(expectedMoney), is(not(true)));
+	}
 }
 
