@@ -32,7 +32,7 @@ public class TestMoney {
         assertThat(EUR10.multiplyBy(15), is(eur10By15));
 
         final Money eur15By15 = new Money(225, Currency.getInstance("EUR"));
-        assertThat(EUR15.multiplyBy(15), is(eur15By15));
+        assertThat(EUR15.multiplyBy(new BigDecimal(15)), is(eur15By15));
 
         final Money eur21by15 = new Money(new BigDecimal(315), Currency.getInstance("EUR"));
         assertThat(EUR21.multiplyBy(15), is(eur21by15));
@@ -45,7 +45,7 @@ public class TestMoney {
         assertThat(USD13.multiplyBy(15), is(usd13By15));
 
         final Money usd18By15 = new Money(new BigDecimal(270), Currency.getInstance("USD"));
-        assertThat(USD18.multiplyBy(15), is(usd18By15));
+        assertThat(USD18.multiplyBy(new BigDecimal(15)), is(usd18By15));
 
         final Money usd27By15 = new Money(405, Currency.getInstance("USD"));
         assertThat(USD27.multiplyBy(15), is(usd27By15));
@@ -73,5 +73,11 @@ public class TestMoney {
         assertThat(EUR15.lessThan(USD27), is(true));
         assertThat(USD27.greaterThan(USD13), is(true));
         assertThat(USD18.lessOrEquals(new Money(18)), is(true));
+    }
+    
+    @Test
+    public void testSumEuro(){
+        final Money EUR25 = new Money(25, Currency.getInstance("EUR"));
+        assertThat(EUR10.add(EUR15), is(EUR25));
     }
 }
