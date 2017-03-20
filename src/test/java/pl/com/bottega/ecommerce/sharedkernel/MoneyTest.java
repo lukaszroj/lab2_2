@@ -57,8 +57,22 @@ public class MoneyTest {
     }
 
     @Test
-    public void subtract() throws Exception {
+    public void subtractWithSameCurrency() throws Exception {
+        money = new Money(firstValue, Currency.getInstance("PLN"));
+        anotherMoney = new Money(secondValue, Currency.getInstance("PLN"));
 
+        result = money.subtract(anotherMoney);
+
+        assertThat(result.getCurrency(), equalTo(money.getCurrency()));
+        assertThat(result, equalTo(new Money(firstValue - secondValue, money.getCurrency())));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void subtractWithDifferentCurrency() throws Exception {
+        money = new Money(firstValue, Currency.getInstance("PLN"));
+        anotherMoney = new Money(secondValue, Currency.getInstance("EUR"));
+
+        result = money.add(anotherMoney);
     }
 
     @Test
