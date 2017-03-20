@@ -35,5 +35,14 @@ public class MoneyTest {
 
 		assertThat(money.subtract(money2), is(equalTo(new Money(22.2))));
 	}
+	
+	@Test
+	public void greaterThanTest() {
+
+		Money money = new Money(50);
+		Money money2 = new Money(27.8);
+
+		assertThat(money.greaterThan(money2), is(true));
+	}
 
 }
