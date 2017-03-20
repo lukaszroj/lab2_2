@@ -56,5 +56,11 @@ public class MoneyUnitTests {
 		assertThat(money.equals(positiveResult), is(true));
 	}
 	
-	
+	@Test
+	public void substractionTwoNegativeNumbers() {
+		Money money = new Money(-100).subtract(new Money(-50));
+		Money positiveResult = new Money(-50);
+		
+		assertThat(money.equals(positiveResult), is(true));
+	}
 }
