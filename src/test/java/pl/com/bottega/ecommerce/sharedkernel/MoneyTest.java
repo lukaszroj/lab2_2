@@ -20,19 +20,20 @@ public class MoneyTest {
     Money result;
     double firstValue = 26.5;
     double secondValue = 48.05;
+    boolean actual;
 
     @Test
     public void multiplyByPositiveNumber() throws Exception {
-        money = new Money(200);
-        properValue = new Money(400);
+        money = new Money(firstValue);
+        properValue = new Money(firstValue*2);
         result = money.multiplyBy(2);
         Assert.assertThat(result, is(equalTo(properValue)));
     }
 
     @Test
     public void multiplyByNegativeNumber() throws Exception {
-        money = new Money(200);
-        properValue = new Money(-200);
+        money = new Money(firstValue);
+        properValue = new Money(firstValue*(-1));
         result = money.multiplyBy(-1);
         Assert.assertThat(result, is(equalTo(properValue)));
     }
@@ -76,17 +77,9 @@ public class MoneyTest {
     }
 
     @Test
-    public void getCurrencyCode() throws Exception {
+    public void greaterThanWithSameCurrency() throws Exception {
 
-    }
 
-    @Test
-    public void getCurrency() throws Exception {
-
-    }
-
-    @Test
-    public void greaterThan() throws Exception {
 
     }
 
