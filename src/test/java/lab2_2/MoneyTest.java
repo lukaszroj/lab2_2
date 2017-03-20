@@ -45,5 +45,14 @@ public class MoneyTest {
 		Assert.assertThat(actualMoney, is(expectedMoney));		
 	}
 	
+	@Test
+	public void testSubtract() {
+		
+		expectedMoney = new Money(0);
+		actualMoney = money.subtract(money);
+		
+		Assert.assertThat(actualMoney, is(expectedMoney));
+	}
+	
 }
 
