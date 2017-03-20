@@ -42,7 +42,7 @@ public class MoneyTest {
 		assertThat(result, is(testValue));
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test (expected = IllegalArgumentException.class)
 	public void testAddMethodToThrowExceotion() {
 		Money result = new Money(100,"USD");
 		final Money moneyToAdd = new Money(300);
@@ -50,11 +50,22 @@ public class MoneyTest {
 		result = result.add(moneyToAdd);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test (expected = IllegalArgumentException.class)
 	public void testSubtractMethodToThrowException() {
 		Money result = new Money(400,"USD");
-		final Money moneyToSubtract = new Money(300);;
+		final Money moneyToSubtract = new Money(300);
 		
 		result = result.subtract(moneyToSubtract);
 	}
+	
+	@Test
+	public void testGreaterThanMethod() {
+		final Money testValueOne = new Money(100);
+		final Money testValueTwo = new Money(10);
+		
+		final boolean result = testValueOne.greaterThan(testValueTwo);
+		
+		assertThat(result, is(true));
+	}
+	
 }
