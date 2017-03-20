@@ -27,4 +27,13 @@ public class MoneyTest {
 		assertThat(money.add(money2), is(equalTo(new Money(50))));
 	}
 
+	@Test
+	public void subtractMoneyTest() {
+
+		Money money = new Money(50);
+		Money money2 = new Money(27.8);
+
+		assertThat(money.subtract(money2), is(equalTo(new Money(22.2))));
+	}
+
 }
