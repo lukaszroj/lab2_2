@@ -48,6 +48,13 @@ public class MoneyTest {
 		final Money moneyToAdd = new Money(300);
 		
 		result = result.add(moneyToAdd);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testSubtractMethodToThrowException() {
+		Money result = new Money(400,"USD");
+		final Money moneyToSubtract = new Money(300);;
 		
+		result = result.subtract(moneyToSubtract);
 	}
 }
