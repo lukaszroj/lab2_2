@@ -73,7 +73,7 @@ public class MoneyUnitTests {
 		
 		Money positiveResult = money.multiplyBy(2);
 		
-		assertThat(positiveResult.getCurrencyCode(), is(equalTo(money.getCurrencyCode())));
+		assertThat(positiveResult.getCurrencyCode(), is(equalTo("PL")));
 	}
 	
 	@Test
@@ -86,11 +86,20 @@ public class MoneyUnitTests {
 	}
 	
 	@Test
-	public void additionTwoPositiveNumbersWithPlCurrency() {
+	public void additionTwoPositiveNumbersWithDefaultCurrency() {
 		Money money = new Money(500);
 		Money money2 = new Money(500);
 		Money result = money.add(money2);
 		
 		assertThat(result.getCurrencyCode(), is(equalTo("EUR")));
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+		public void additionTwoNumbersWithDifferentCurrency() {
+		Money money1 = new Money(500, Currency.getInstance("EUR"));
+		Money money2 = new Money(500, Currency.getInstance("PLN"));
+		Money result = money1.add(money2);
+	}
+	
+	
 }
