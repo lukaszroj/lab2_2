@@ -78,4 +78,13 @@ public class MoneyTest {
 		assertThat(result, is(true));
 	}
 	
+	@Test
+	public void testLessOrEqualsMethodWhereValueAreEquals() {
+		final Money testValueOne = new Money(100);
+		final Money testValueTwo = new Money(100);
+		
+		final boolean result = testValueOne.lessOrEquals(testValueTwo);
+		
+		assertThat(result, is(true));
+	}
 }
