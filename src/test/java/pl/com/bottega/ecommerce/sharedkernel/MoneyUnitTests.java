@@ -84,4 +84,13 @@ public class MoneyUnitTests {
 		
 		assertThat(positiveResult.getCurrencyCode(), is(equalTo("EUR")));
 	}
+	
+	@Test
+	public void additionTwoPositiveNumbersWithPlCurrency() {
+		Money money = new Money(500);
+		Money money2 = new Money(500);
+		Money result = money.add(money2);
+		
+		assertThat(result.getCurrencyCode(), is(equalTo("EUR")));
+	}
 }
