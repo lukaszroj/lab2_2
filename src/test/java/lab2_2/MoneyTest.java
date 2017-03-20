@@ -68,4 +68,14 @@ public class MoneyTest {
 		assertThat(result, is(true));
 	}
 	
+	@Test
+	public void testLessThanMethod() {
+		final Money testValueOne = new Money(10);
+		final Money testValueTwo = new Money(100);
+		
+		final boolean result = testValueOne.lessThan(testValueTwo);
+		
+		assertThat(result, is(true));
+	}
+	
 }
