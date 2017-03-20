@@ -67,4 +67,11 @@ public class TestMoney {
         assertThat(USD27.greaterThan(USD13), is(true));
         assertThat(USD18.lessOrEquals(USD18), is(true));
     }
+        @Test
+    public void testCompareDollarAndEuro() {
+        assertThat(USD13.lessThan(EUR15), is(true));
+        assertThat(EUR15.lessThan(USD27), is(true));
+        assertThat(USD27.greaterThan(USD13), is(true));
+        assertThat(USD18.lessOrEquals(new Money(18)), is(true));
+    }
 }
