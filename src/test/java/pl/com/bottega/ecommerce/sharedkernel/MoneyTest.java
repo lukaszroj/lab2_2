@@ -79,8 +79,12 @@ public class MoneyTest {
     @Test
     public void greaterThanWithSameCurrency() throws Exception {
 
+        money = new Money(firstValue);
+        anotherMoney = new Money(secondValue);
 
+        boolean actual = anotherMoney.greaterThan(money);
 
+        assertThat(actual, is(true));
     }
 
     @Test
