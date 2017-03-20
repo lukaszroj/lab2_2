@@ -104,5 +104,16 @@ public class MoneyTest {
         assertThat(actual, is(false));
     }
 
+    @Test
+    public void positiveLessThan() throws Exception {
+
+        money = new Money(firstValue);
+        anotherMoney = new Money(secondValue);
+
+        actual = anotherMoney.greaterThan(money);
+
+        assertThat(actual, is(true));
+    }
+
 
 }
