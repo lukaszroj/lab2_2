@@ -41,4 +41,28 @@ public class MoneyTest {
  
          assertThat(sumOfMoney, equalTo(result));
      }
+	 
+	 @Test
+     public void testSubtractCase1() {
+         Money money1 = new Money(25);
+         Money money2 = new Money(5);
+ 
+         Money differenceOfMoney = money1.subtract(money2);
+ 
+         Money result = new Money(20);
+ 
+         assertThat(differenceOfMoney, equalTo(result));
+     }
+	 
+	 @Test (expected = IllegalArgumentException.class)
+     public void testSubtractCase2() throws IllegalArgumentException {
+         Money money1 = new Money(25, "PLN");
+         Money money2 = new Money(5, "USD");
+ 
+         Money differenceOfMoney = money1.subtract(money2);
+ 
+         Money result = new Money(30);
+ 
+         assertThat(differenceOfMoney, equalTo(result));
+     }
 }
