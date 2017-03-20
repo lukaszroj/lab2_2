@@ -2,6 +2,9 @@ package pl.com.bottega.ecommerce.sharedkernel;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Currency;
+
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -12,9 +15,11 @@ import static org.junit.Assert.*;
 public class MoneyTest {
 
     Money money;
+    Money anotherMoney;
     Money properValue;
     Money result;
-
+    double firstValue;
+    double secoundValue;
 
     @Test
     public void multiplyByPositiveNumber() throws Exception {
@@ -33,7 +38,14 @@ public class MoneyTest {
     }
 
     @Test
-    public void add() throws Exception {
+    public void addWithSameCurrency() throws Exception {
+        money = new Money(firstValue, Currency.getInstance("PLN"));
+        anotherMoney = new Money(secoundValue, Currency.getInstance("PLN"));
+
+        result = money.add(anotherMoney);
+
+        assertThat(result.getCurrency(), equalTo(money.getCurrency()));
+        assertThat(result, equalTo(new Money(firstValue + secoundValue, money.getCurrency())));
 
     }
 
