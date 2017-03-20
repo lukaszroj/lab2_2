@@ -1,6 +1,9 @@
 package pl.com.bottega.ecommerce.sharedkernel;
 
 import static org.junit.Assert.*;
+
+import java.util.Currency;
+
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.hamcrest.CoreMatchers.*;
 
@@ -62,5 +65,14 @@ public class MoneyUnitTests {
 		Money positiveResult = new Money(-50);
 		
 		assertThat(money.equals(positiveResult), is(true));
+	}
+	
+	@Test
+	public void multiplyByPositiveNumberWithPlCurrency() {
+		Money money = new Money(500, "PL");
+		
+		Money positiveResult = money.multiplyBy(2);
+		
+		assertThat(positiveResult.getCurrencyCode(), is(equalTo(money.getCurrencyCode())));
 	}
 }
