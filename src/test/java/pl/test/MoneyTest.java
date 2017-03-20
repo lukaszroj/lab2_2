@@ -44,5 +44,14 @@ public class MoneyTest {
 
 		assertThat(money.greaterThan(money2), is(true));
 	}
+	
+	@Test
+	public void lessThanTest() {
+
+		Money money = new Money(20);
+		Money money2 = new Money(27.8);
+
+		assertThat(money.lessThan(money2), is(true));
+	}
 
 }
