@@ -59,7 +59,7 @@ public class TestMoney {
         assertThat(EUR21.greaterThan(EUR15), is(true));
         assertThat(EUR15.lessOrEquals(EUR15), is(true));
     }
-    
+
     @Test
     public void testCompareDollar() {
         assertThat(USD13.lessThan(USD18), is(true));
@@ -67,35 +67,42 @@ public class TestMoney {
         assertThat(USD27.greaterThan(USD13), is(true));
         assertThat(USD18.lessOrEquals(USD18), is(true));
     }
-        @Test
+
+    @Test
     public void testCompareDollarAndEuro() {
         assertThat(USD13.lessThan(EUR15), is(true));
         assertThat(EUR15.lessThan(USD27), is(true));
         assertThat(USD27.greaterThan(USD13), is(true));
         assertThat(USD18.lessOrEquals(new Money(18)), is(true));
     }
-    
+
     @Test
-    public void testSumEuro(){
+    public void testSumEuro() {
         final Money EUR25 = new Money(25, Currency.getInstance("EUR"));
         assertThat(EUR10.add(EUR15), is(EUR25));
     }
-    
+
     @Test
-    public void testSumDollar(){
+    public void testSumDollar() {
         final Money USD31 = new Money(31, Currency.getInstance("USD"));
         assertThat(USD18.add(USD13), is(USD31));
     }
-    
+
     @Test(expected = IllegalArgumentException.class)
-    public void testSumMixed(){
+    public void testSumMixed() {
         final Money EUR25 = new Money(28, Currency.getInstance("EUR"));
         assertThat(USD13.add(EUR15), is(EUR25));
     }
-    
-        @Test(expected = IllegalArgumentException.class)
-    public void testSubtractMixed(){
-        final Money EUR25 = new Money(-3, Currency.getInstance("EUR"));
-        assertThat(USD18.subtract(EUR21), is(EUR25));
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSubtractMixed() {
+        final Money MINUS = new Money(-3, Currency.getInstance("EUR"));
+        assertThat(USD18.subtract(EUR21), is(MINUS));
+    }
+
+    @Test()
+    public void testSubutractEuro() {
+        final Money MINUS = new Money(-5, Currency.getInstance("EUR"));
+        assertThat(EUR10.subtract(EUR15), is(MINUS));
     }
 }
