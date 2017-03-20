@@ -19,5 +19,15 @@ public class MoneyTest {
 		
 		assertThat(result, is(testValue));
 	}
-
+	
+	@Test
+	public void testAddMethod() {
+		Money result = new Money(100);
+		final Money moneyToAdd = new Money(300);
+		final Money testValue = new Money(400);
+		
+		result = result.add(moneyToAdd);
+		
+		assertThat(result, is(testValue));
+	}
 }
