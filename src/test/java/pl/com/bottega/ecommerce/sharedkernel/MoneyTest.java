@@ -24,6 +24,7 @@ public class MoneyTest {
 
     @Test
     public void multiplyByPositiveNumber() throws Exception {
+
         money = new Money(firstValue);
         properValue = new Money(firstValue*2);
         result = money.multiplyBy(2);
@@ -32,6 +33,7 @@ public class MoneyTest {
 
     @Test
     public void multiplyByNegativeNumber() throws Exception {
+
         money = new Money(firstValue);
         properValue = new Money(firstValue*(-1));
         result = money.multiplyBy(-1);
@@ -40,6 +42,7 @@ public class MoneyTest {
 
     @Test
     public void addWithSameCurrency() throws Exception {
+
         money = new Money(firstValue, Currency.getInstance("PLN"));
         anotherMoney = new Money(secondValue, Currency.getInstance("PLN"));
 
@@ -51,6 +54,7 @@ public class MoneyTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void addWithDifferentCurrency() throws Exception {
+
         money = new Money(firstValue, Currency.getInstance("PLN"));
         anotherMoney = new Money(secondValue, Currency.getInstance("EUR"));
 
@@ -59,6 +63,7 @@ public class MoneyTest {
 
     @Test
     public void subtractWithSameCurrency() throws Exception {
+
         money = new Money(firstValue, Currency.getInstance("PLN"));
         anotherMoney = new Money(secondValue, Currency.getInstance("PLN"));
 
@@ -70,6 +75,7 @@ public class MoneyTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void subtractWithDifferentCurrency() throws Exception {
+
         money = new Money(firstValue, Currency.getInstance("PLN"));
         anotherMoney = new Money(secondValue, Currency.getInstance("EUR"));
 
@@ -77,24 +83,24 @@ public class MoneyTest {
     }
 
     @Test
-    public void greaterThanWithSameCurrency() throws Exception {
+    public void positiveGreaterThan() throws Exception {
 
         money = new Money(firstValue);
         anotherMoney = new Money(secondValue);
 
-        boolean actual = anotherMoney.greaterThan(money);
+        actual = anotherMoney.greaterThan(money);
 
         assertThat(actual, is(true));
     }
 
-    @Test
-    public void lessThan() throws Exception {
+    @Test(expected = IllegalArgumentException.class)
+    public void negativeGreaterThan() throws Exception {
 
+        money = new Money(secondValue);
+        anotherMoney = new Money(firstValue);
+
+        actual = anotherMoney.greaterThan(money);
     }
 
-    @Test
-    public void lessOrEquals() throws Exception {
-
-    }
 
 }
