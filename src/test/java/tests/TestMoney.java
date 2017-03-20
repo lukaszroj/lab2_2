@@ -105,4 +105,10 @@ public class TestMoney {
         final Money MINUS = new Money(-5, Currency.getInstance("EUR"));
         assertThat(EUR10.subtract(EUR15), is(MINUS));
     }
+
+    @Test()
+    public void testSubutractDollar() {
+        final Money MINUS = new Money(-5, Currency.getInstance("USD"));
+        assertThat(USD13.subtract(USD18), is(MINUS));
+    }
 }
