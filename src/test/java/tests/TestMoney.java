@@ -86,4 +86,10 @@ public class TestMoney {
         final Money USD31 = new Money(31, Currency.getInstance("USD"));
         assertThat(USD18.add(USD13), is(USD31));
     }
+    
+        @Test(expected = IllegalArgumentException.class)
+    public void testSumMixed(){
+        final Money EUR25 = new Money(28, Currency.getInstance("EUR"));
+        assertThat(USD13.add(EUR15), is(EUR25));
+    }
 }
