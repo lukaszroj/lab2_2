@@ -18,8 +18,8 @@ public class MoneyTest {
     Money anotherMoney;
     Money properValue;
     Money result;
-    double firstValue;
-    double secoundValue;
+    double firstValue = 26.5;
+    double secondValue = 48.05;
 
     @Test
     public void multiplyByPositiveNumber() throws Exception {
@@ -40,13 +40,20 @@ public class MoneyTest {
     @Test
     public void addWithSameCurrency() throws Exception {
         money = new Money(firstValue, Currency.getInstance("PLN"));
-        anotherMoney = new Money(secoundValue, Currency.getInstance("PLN"));
+        anotherMoney = new Money(secondValue, Currency.getInstance("PLN"));
 
         result = money.add(anotherMoney);
 
         assertThat(result.getCurrency(), equalTo(money.getCurrency()));
-        assertThat(result, equalTo(new Money(firstValue + secoundValue, money.getCurrency())));
+        assertThat(result, equalTo(new Money(firstValue + secondValue, money.getCurrency())));
+    }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void addWithDifferentCurrency() throws Exception {
+        money = new Money(firstValue, Currency.getInstance("PLN"));
+        anotherMoney = new Money(secondValue, Currency.getInstance("EUR"));
+
+        result = money.add(anotherMoney);
     }
 
     @Test
