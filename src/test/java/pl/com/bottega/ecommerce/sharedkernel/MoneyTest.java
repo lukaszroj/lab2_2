@@ -25,6 +25,14 @@ public class MoneyTest {
     }
 
     @Test
+    public void multiplyByNegativeNumber() throws Exception {
+        money = new Money(200);
+        properValue = new Money(-200);
+        result = money.multiplyBy(-1);
+        Assert.assertThat(result, is(equalTo(properValue)));
+    }
+
+    @Test
     public void add() throws Exception {
 
     }
