@@ -95,11 +95,16 @@ public class MoneyUnitTests {
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
-		public void additionTwoNumbersWithDifferentCurrency() {
+	public void additionTwoNumbersWithDifferentCurrency() {
 		Money money1 = new Money(500, Currency.getInstance("EUR"));
 		Money money2 = new Money(500, Currency.getInstance("PLN"));
 		Money result = money1.add(money2);
 	}
 	
-	
+	@Test(expected = IllegalArgumentException.class)
+	public void substractionTwoNumbersWithDifferentCurrency() {
+		Money money1 = new Money(500, Currency.getInstance("EUR"));
+		Money money2 = new Money(500, Currency.getInstance("PLN"));
+		Money result = money1.add(money2);
+	}
 }
