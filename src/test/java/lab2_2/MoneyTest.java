@@ -30,4 +30,16 @@ public class MoneyTest {
 		
 		assertThat(result, is(testValue));
 	}
+	
+	@Test
+	public void testSubtractMethod() {
+		Money result = new Money(400);
+		final Money moneyToSubtract = new Money(300);
+		final Money testValue = new Money(100);
+		
+		result = result.subtract(moneyToSubtract);
+		
+		assertThat(result, is(testValue));
+	}
+	
 }
