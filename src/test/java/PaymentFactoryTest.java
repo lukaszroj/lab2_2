@@ -35,6 +35,7 @@ public class PaymentFactoryTest {
         PaymentFactory paymentFactory = new PaymentFactory();
         Object result = paymentFactory.createPayment(clientData, money);
         assertThat(result, is(instanceOf(Payment.class)));
+        
     }
 
 }

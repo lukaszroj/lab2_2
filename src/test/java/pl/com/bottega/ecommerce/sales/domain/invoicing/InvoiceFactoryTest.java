@@ -20,10 +20,11 @@ public class InvoiceFactoryTest {
     }
 
     @Test
-    public void create() throws Exception {
+    public void testCreate() throws Exception {
         InvoiceFactory invoiceFactory = new InvoiceFactory();
         Invoice result = invoiceFactory.create(clientData);
         assertThat(result, is(instanceOf(Invoice.class)));
     }
+
 
 }
