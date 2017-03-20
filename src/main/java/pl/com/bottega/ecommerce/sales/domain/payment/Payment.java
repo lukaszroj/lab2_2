@@ -34,6 +34,7 @@ public class Payment {
 		this.aggregateId = aggregateId;
 		this.clientData = clientData;
 		this.amount = amount;
+		this.paymentFactory = new PaymentFactory();
 	}
 
 	public Payment rollBack() {
