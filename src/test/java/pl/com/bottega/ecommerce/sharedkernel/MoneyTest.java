@@ -1,21 +1,27 @@
 package pl.com.bottega.ecommerce.sharedkernel;
 
+import org.junit.Assert;
 import org.junit.Test;
-
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 /**
  * Created by pebuls on 20.03.17.
  */
 public class MoneyTest {
+
+    Money money;
+    Money properValue;
+    Money result;
+
+
     @Test
-    public void multiplyBy() throws Exception {
-
-    }
-
-    @Test
-    public void multiplyBy1() throws Exception {
-
+    public void multiplyByPositiveNumber() throws Exception {
+        money = new Money(200);
+        properValue = new Money(400);
+        result = money.multiplyBy(2);
+        Assert.assertThat(result, is(equalTo(properValue)));
     }
 
     @Test
