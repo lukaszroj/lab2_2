@@ -15,5 +15,12 @@ public class MoneyUnitTests {
 		
 		assertThat(money.equals(positiveResult), is(true));
 	}
-
+	
+	@Test
+	public void multiplyByNegativeNumber() {
+		Money money = new Money(100).multiplyBy(-5);
+		Money positiveResult = new Money(-500);
+		
+		assertThat(money.equals(positiveResult), is(true));
+	}
 }
