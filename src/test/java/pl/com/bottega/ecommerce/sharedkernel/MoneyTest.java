@@ -136,6 +136,15 @@ public class MoneyTest {
         assertThat(actual, is(true));
     }
 
+    @Test
+    public void testLessOrEqualCheckEqual() throws Exception {
+        money = new Money(firstValue);
+        anotherMoney = new Money(firstValue);
+
+        boolean actual = money.lessOrEquals(anotherMoney);
+
+        assertThat(actual, is(true));
+    }
 
 
 
