@@ -55,4 +55,17 @@ public class MoneyTest {
         //then:
         assertThat(result,equalTo(EXPECTED_MONEY));
     }
+
+    @Test
+    public void shouldSubtractTwoMoneyObjects() throws Exception {
+        //given:
+        final Money EXPECTED_MONEY = new Money(0,"EUR");
+
+        //when:
+        Money result = EUR_MONEY.subtract(ANY_MONEY);
+
+
+        //then:
+        assertThat(result,equalTo(EXPECTED_MONEY));
+    }
 }
