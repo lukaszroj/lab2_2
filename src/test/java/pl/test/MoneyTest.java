@@ -53,7 +53,7 @@ public class MoneyTest {
 
 		assertThat(money.lessThan(money2), is(true));
 	}
-	
+
 	@Test
 	public void lessOrEqualsTest() {
 
@@ -61,11 +61,55 @@ public class MoneyTest {
 		Money money2 = new Money(27.8);
 
 		assertThat(money.lessOrEquals(money2), is(true));
-		
+
 		money2 = new Money(20);
-		
+
 		assertThat(money.lessOrEquals(money2), is(true));
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void addDifferentCurrencyTest() {
+
+		Money money = new Money(20, "USD");
+		Money money2 = new Money(27.8, "EUR");
+
+		money.add(money2);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void subtractDifferentCurrencyTest() {
+
+		Money money = new Money(20, "USD");
+		Money money2 = new Money(27.8, "EUR");
+
+		money.subtract(money2);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void greaterThanDifferentCurrencyTest() {
+
+		Money money = new Money(20, "USD");
+		Money money2 = new Money(27.8, "EUR");
+
+		money.subtract(money2);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lessThanDifferentCurrencyTest() {
+
+		Money money = new Money(20, "USD");
+		Money money2 = new Money(27.8, "EUR");
+
+		money.subtract(money2);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lessOrEqualsDifferentCurrencyTest() {
+
+		Money money = new Money(20, "USD");
+		Money money2 = new Money(27.8, "EUR");
+
+		money.subtract(money2);
+	}
 
 }
