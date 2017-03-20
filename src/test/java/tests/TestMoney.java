@@ -115,6 +115,7 @@ public class TestMoney {
     @Test
     public void testMoneyEqual(){
         final Money shouldBe = new Money(10, "EUR");
-        assertThat(shouldBe.equals(EUR10), is(true));
+        assertThat(shouldBe.equals(EUR10), is(true));        
     }
+
 }
