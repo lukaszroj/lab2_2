@@ -23,4 +23,13 @@ public class MoneyUnitTests {
 		
 		assertThat(money.equals(positiveResult), is(true));
 	}
+	
+	@Test
+	public void multiplyByZero() {
+		Money money = new Money(100).multiplyBy(0);
+		Money positiveResult = new Money(0);
+		
+		assertThat(money.equals(positiveResult), is(true));
+	}
+	
 }
