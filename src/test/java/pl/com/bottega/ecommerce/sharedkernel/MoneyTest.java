@@ -14,6 +14,18 @@ public class MoneyTest {
     private final Money ANY_MONEY = new Money(300);
 
     @Test
+    public void shouldSetEurAsDefaultCurrency() throws Exception {
+        //given:
+        final Currency EXPECTED_CURRENCY = Currency.getInstance("EUR");
+
+        //when:
+        Money money = new Money(0);
+
+        //then:
+        assertThat(money.getCurrency(),is(EXPECTED_CURRENCY));
+    }
+
+    @Test
     public void shouldProperlyMultiplyByPositive() throws Exception {
         //given:
         final Money EXPECTED_MONEY = new Money(300);
@@ -67,5 +79,11 @@ public class MoneyTest {
 
         //then:
         assertThat(result,equalTo(EXPECTED_MONEY));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionTryingToSubtractTwoCurrencies() throws Exception {
+        //when:
+        EUR_MONEY.subtract(USD_MONEY);
     }
 }
