@@ -111,4 +111,10 @@ public class TestMoney {
         final Money MINUS = new Money(-5, Currency.getInstance("USD"));
         assertThat(USD13.subtract(USD18), is(MINUS));
     }
+    
+    @Test
+    public void testMoneyEqual(){
+        final Money shouldBe = new Money(10, "EUR");
+        assertThat(shouldBe.equals(EUR10), is(true));
+    }
 }
