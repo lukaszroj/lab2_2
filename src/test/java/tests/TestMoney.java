@@ -87,9 +87,15 @@ public class TestMoney {
         assertThat(USD18.add(USD13), is(USD31));
     }
     
-        @Test(expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testSumMixed(){
         final Money EUR25 = new Money(28, Currency.getInstance("EUR"));
         assertThat(USD13.add(EUR15), is(EUR25));
+    }
+    
+        @Test(expected = IllegalArgumentException.class)
+    public void testSubtractMixed(){
+        final Money EUR25 = new Money(-3, Currency.getInstance("EUR"));
+        assertThat(USD18.subtract(EUR21), is(EUR25));
     }
 }
