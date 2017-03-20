@@ -75,4 +75,13 @@ public class MoneyUnitTests {
 		
 		assertThat(positiveResult.getCurrencyCode(), is(equalTo(money.getCurrencyCode())));
 	}
+	
+	@Test
+	public void multiplyByPositiveNumberDefaultCurrency() {
+		Money money = new Money(500);
+		
+		Money positiveResult = money.multiplyBy(2);
+		
+		assertThat(positiveResult.getCurrencyCode(), is(equalTo("EUR")));
+	}
 }
