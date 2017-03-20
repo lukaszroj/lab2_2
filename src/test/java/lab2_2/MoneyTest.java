@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Test;
 
+
 import pl.com.bottega.ecommerce.sharedkernel.Money;
 
 
@@ -116,5 +117,7 @@ public class MoneyTest {
 		
 		Assert.assertThat(actualMoney.lessOrEquals(expectedMoney), is(not(true)));
 	}
+	
+
 }
 
