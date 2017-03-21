@@ -202,4 +202,20 @@ public class TMoney {
 		
 		Assert.assertThat(money.lessThan(testMoney), is(true));
 	}
+	
+	@Test
+	public void lessOrEqualsMethodReturnsTrueWhenLess() {
+		Money money = new Money(123);
+		Money testMoney = new Money(321);
+		
+		Assert.assertThat(money.lessOrEquals(testMoney), is(true));
+	}
+	
+	@Test
+	public void lessOrEqualsMethodReturnsTrueWhenEqual() {
+		Money money = new Money(99);
+		Money testMoney = new Money(99);
+		
+		Assert.assertThat(money.lessOrEquals(testMoney), is(true));
+	}
 }
