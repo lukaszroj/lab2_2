@@ -71,7 +71,7 @@ public class MoneyTest {
 	}
 	
 	@Test (expected = IllegalArgumentException.class)
-	public void addNotSameCurrency() {
+	public void testAddNotSameCurrency() {
 		Money m1 = new Money(50, Currency.getInstance("PLN"));
 		Money m2 = new Money(100, Currency.getInstance("SK"));
 		Money result = m1.add(m2);
@@ -108,7 +108,7 @@ public class MoneyTest {
 	}
 	
 	@Test (expected = IllegalArgumentException.class)
-	public void subtractNotSameCurrency() {
+	public void testSubtractNotSameCurrency() {
 		Money m1 = new Money(50, Currency.getInstance("PLN"));
 		Money m2 = new Money(100, Currency.getInstance("SK"));
 		Money result = m1.subtract(m2);

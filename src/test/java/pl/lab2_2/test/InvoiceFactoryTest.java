@@ -14,7 +14,7 @@ import pl.com.bottega.ecommerce.sales.domain.invoicing.InvoiceFactory;
 public class InvoiceFactoryTest {
 
 	@Test
-	public void createInvoiceHasExpectedType() {
+	public void testCreateInvoiceHasExpectedType() {
 		
 		InvoiceFactory invoiceFactory = new InvoiceFactory();
 		ClientData clientData = new ClientData(Id.generate(), "testowa");

@@ -15,7 +15,7 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
 public class PaymentFactoryTest {
 
 	@Test
-	public void createPaymentHasExpectedType() throws Exception {
+	public void testCreatePaymentHasExpectedType() throws Exception {
 		
 		PaymentFactory paymentFactory = new PaymentFactory();
 		ClientData clientData = new ClientData(Id.generate(), "testowa");
