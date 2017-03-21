@@ -218,4 +218,13 @@ public class TMoney {
 		
 		Assert.assertThat(money.lessOrEquals(testMoney), is(true));
 	}
+	
+	@Test
+	public void lessOrEqualsMethodReturnsFalseWhenGreater() {
+		Money money = new Money(60000);
+		Money testMoney = new Money(32);
+		
+		Assert.assertThat(money.lessOrEquals(testMoney), is(false));
+	}
+	
 }
