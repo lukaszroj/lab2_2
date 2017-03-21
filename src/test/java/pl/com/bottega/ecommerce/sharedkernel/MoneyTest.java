@@ -25,6 +25,13 @@ public class MoneyTest {
 		Assert.assertThat(money.multiplyBy(multiplier), is(equalTo(new Money(600.0))));
 	}
 	
+	@Test
+	public void testAdd() {
+		Money money = new Money(100);
+		
+		Assert.assertThat(money.add(new Money(500.0)), is(equalTo(new Money(600.0))));
+	}
+	
 	
 
 }
