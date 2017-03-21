@@ -32,6 +32,12 @@ public class MoneyTest {
 		Assert.assertThat(money.add(new Money(500.0)), is(equalTo(new Money(600.0))));
 	}
 	
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddWithUncompatibleCurrency() {
+		Money money = new Money(100, "USD");
+		money.add(new Money(500.0));
+	}
+	
 	
 
 }
