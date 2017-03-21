@@ -38,6 +38,19 @@ public class MoneyTest {
 		money.add(new Money(500.0));
 	}
 	
+	@Test
+	public void testSubtract() {
+		Money money = new Money(100);
+		
+		Assert.assertThat(money.subtract(new Money(50.0)), is(equalTo(new Money(50.0))));
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testSubtractWithUncompatibleCurrency() {
+		Money money = new Money(100, "USD");
+		money.subtract(new Money(50.0));
+	}
+	
 	
 
 }
