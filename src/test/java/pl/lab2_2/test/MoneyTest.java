@@ -20,12 +20,14 @@ public class MoneyTest {
 	}
 	
 	@Test
-	public void multiplyByNegative() {
+	public void testMultiplyByNegative() {
 		
 		Money money = new Money(30);
 		Money expected = new Money(-90);
 		Money result = money.multiplyBy(-3);
 		assertThat(result, is(equalTo(expected)));
 	}
+	
+	
 
 }
