@@ -26,4 +26,19 @@ public class TMoney {
 		Assert.assertThat(money.multiplyBy(new BigDecimal(0)), is(equalTo(expectedResult)));
 	}
 
+	@Test
+	public void multiplyByPositiveDouble() {
+		Money money = new Money(15);
+		Money expectedResult = new Money(45);
+		
+		Assert.assertThat(money.multiplyBy(3), is(equalTo(expectedResult)));
+	}
+
+	@Test
+	public void multiplyByPositiveBigDecimal() {
+		Money money = new Money(13);
+		Money expectedResult = new Money(39);
+		
+		Assert.assertThat(money.multiplyBy(new BigDecimal(3)), is(equalTo(expectedResult)));
+	}
 }
