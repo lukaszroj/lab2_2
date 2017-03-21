@@ -96,5 +96,15 @@ public class MoneyTest {
 		Money result = money.subtract(money1);
 		assertThat(result, is(equalTo(expected)));
 	}
+	
+	@Test
+	public void testSubtractBothNegative() {
+		
+		Money money = new Money(-30);
+		Money money1 = new Money(-30);
+		Money expected = new Money(0);
+		Money result = money.subtract(money1);
+		assertThat(result, is(equalTo(expected)));
+	}
 
 }
