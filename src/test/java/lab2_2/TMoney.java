@@ -123,4 +123,51 @@ public class TMoney {
 		Assert.assertThat(money.add(new Money(35, Currency.getInstance("KRW"))), is(equalTo(expectedResult)));
 	}
 
+	@Test
+	public void subtractZero() {
+		Money money = new Money(21);
+		Money expectedResult = new Money(21);
+
+		Assert.assertThat(money.subtract(new Money(0)), is(equalTo(expectedResult)));
+	}
+
+	@Test
+	public void subtractPositive() {
+		Money money = new Money(22);
+		Money expectedResult = new Money(13);
+
+		Assert.assertThat(money.subtract(new Money(9)), is(equalTo(expectedResult)));
+	}
+
+	@Test
+	public void subtractNegative() {
+		Money money = new Money(18);
+		Money expectedResult = new Money(47);
+
+		Assert.assertThat(money.subtract(new Money(-29)), is(equalTo(expectedResult)));
+	}
+
+	@Test
+	public void subtractTwoNegatives() {
+		Money money = new Money(-52);
+		Money expectedResult = new Money(-41);
+
+		Assert.assertThat(money.subtract(new Money(-11)), is(equalTo(expectedResult)));
+	}
+
+	@Test
+	public void subtractingKeepsCurrency() {
+		Money money = new Money(19, Currency.getInstance("CHF"));
+		Money expectedResult = new Money(0, Currency.getInstance("CHF"));
+
+		Assert.assertThat(money.subtract(new Money(19, Currency.getInstance("CHF"))), is(equalTo(expectedResult)));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void subtractingDifferentCurrenciesThrowsException() {
+		Money money = new Money(19, Currency.getInstance("JPY"));
+		Money expectedResult = new Money(0);
+
+		Assert.assertThat(money.subtract(new Money(19, Currency.getInstance("KRW"))), is(equalTo(expectedResult)));
+	}
 }
