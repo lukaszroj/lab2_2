@@ -28,6 +28,13 @@ public class MoneyTest {
 		assertThat(result, is(equalTo(expected)));
 	}
 	
-	
+	@Test
+	public void testMultiplyByZero() {
+		
+		Money money = new Money(30);
+		Money expected = new Money(0);
+		Money result = money.multiplyBy(0);
+		assertThat(result, is(equalTo(expected)));
+	}
 
 }
