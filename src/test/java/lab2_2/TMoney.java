@@ -98,15 +98,15 @@ public class TMoney {
 
 		Assert.assertThat(money.add(new Money(-26)), is(equalTo(expectedResult)));
 	}
-	
+
 	@Test
 	public void addTwoNegatives() {
 		Money money = new Money(-50);
 		Money expectedResult = new Money(-83);
-		
+
 		Assert.assertThat(money.add(new Money(-33)), is(equalTo(expectedResult)));
 	}
-	
+
 	@Test
 	public void addingKeepsCurrency() {
 		Money money = new Money(19, Currency.getInstance("CHF"));
@@ -114,5 +114,13 @@ public class TMoney {
 
 		Assert.assertThat(money.add(new Money(35, Currency.getInstance("CHF"))), is(equalTo(expectedResult)));
 	}
-	
+
+	@Test(expected = IllegalArgumentException.class)
+	public void addingDifferentCurrenciesThrowsException() {
+		Money money = new Money(19, Currency.getInstance("JPY"));
+		Money expectedResult = new Money(54);
+
+		Assert.assertThat(money.add(new Money(35, Currency.getInstance("KRW"))), is(equalTo(expectedResult)));
+	}
+
 }
