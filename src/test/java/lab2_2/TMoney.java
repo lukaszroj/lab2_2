@@ -30,7 +30,7 @@ public class TMoney {
 	public void multiplyByPositiveDouble() {
 		Money money = new Money(15);
 		Money expectedResult = new Money(45);
-		
+
 		Assert.assertThat(money.multiplyBy(3), is(equalTo(expectedResult)));
 	}
 
@@ -38,7 +38,23 @@ public class TMoney {
 	public void multiplyByPositiveBigDecimal() {
 		Money money = new Money(13);
 		Money expectedResult = new Money(39);
-		
+
 		Assert.assertThat(money.multiplyBy(new BigDecimal(3)), is(equalTo(expectedResult)));
+	}
+
+	@Test
+	public void multiplyByNegativeDouble() {
+		Money money = new Money(4);
+		Money expectedResult = new Money(-20);
+
+		Assert.assertThat(money.multiplyBy(-5), is(equalTo(expectedResult)));
+	}
+
+	@Test
+	public void multiplyByNegativeBigDecimal() {
+		Money money = new Money(3);
+		Money expectedResult = new Money(-6);
+
+		Assert.assertThat(money.multiplyBy(new BigDecimal(-2)), is(equalTo(expectedResult)));
 	}
 }
