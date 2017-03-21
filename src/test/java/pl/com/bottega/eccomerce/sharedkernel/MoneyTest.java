@@ -30,4 +30,14 @@ public class MoneyTest {
         Money result = entryValue.subtract(moneyToSubtract);
         assertThat(result, is(expectedMoney));
     }
+
+    @Test
+    public void testMultiplyByZero() {
+        final Money entryValue = new Money(100);
+        final Money expectedMoney = new Money(0);
+
+        Money result = entryValue.multiplyBy(0);
+        assertThat(result, is(expectedMoney));
+
+    }
 }
