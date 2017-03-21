@@ -40,4 +40,13 @@ public class MoneyTest {
         assertThat(result, is(expectedMoney));
 
     }
+
+    @Test
+    public void testMultiplyByNegative() {
+        final Money entryValue = new Money(100);
+        final Money expectedMoney = new Money(-1);
+
+        Money result = entryValue.multiplyBy(-1);
+        assertThat(result, is(expectedMoney));
+    }
 }
