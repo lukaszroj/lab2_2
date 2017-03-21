@@ -77,6 +77,14 @@ public class MoneyTest {
 		Money result = m1.add(m2);
 	}
 	
-	
+	@Test
+	public void testSubstractPositive() {
+		
+		Money money = new Money(30);
+		Money money1 = new Money(30);
+		Money expected = new Money(0);
+		Money result = money.subtract(money1);
+		assertThat(result, is(equalTo(expected)));
+	}
 
 }
