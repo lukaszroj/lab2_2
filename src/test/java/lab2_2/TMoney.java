@@ -83,4 +83,12 @@ public class TMoney {
 		Assert.assertThat(money.add(new Money(0)), is(equalTo(expectedResult)));
 	}
 
+	@Test
+	public void addPositive() {
+		Money money = new Money(17);
+		Money expectedResult = new Money(33);
+		
+		Assert.assertThat(money.add(new Money(16)), is(equalTo(expectedResult)));
+	}
+	
 }
