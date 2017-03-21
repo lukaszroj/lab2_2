@@ -106,4 +106,13 @@ public class TMoney {
 		
 		Assert.assertThat(money.add(new Money(-33)), is(equalTo(expectedResult)));
 	}
+	
+	@Test
+	public void addingKeepsCurrency() {
+		Money money = new Money(19, Currency.getInstance("CHF"));
+		Money expectedResult = new Money(54, Currency.getInstance("CHF"));
+
+		Assert.assertThat(money.add(new Money(35, Currency.getInstance("CHF"))), is(equalTo(expectedResult)));
+	}
+	
 }
