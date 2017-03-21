@@ -186,4 +186,20 @@ public class TMoney {
 		
 		Assert.assertThat(money.greaterThan(testMoney), is(false));
 	}
+	
+	@Test
+	public void lessThanMethodReturnsTrue() {
+		Money money = new Money(87);
+		Money testMoney = new Money(86);
+		
+		Assert.assertThat(money.lessThan(testMoney), is(false));
+	}
+	
+	@Test
+	public void lessThanMethodReturnsFalse() {
+		Money money = new Money(86);
+		Money testMoney = new Money(87);
+		
+		Assert.assertThat(money.lessThan(testMoney), is(true));
+	}
 }
