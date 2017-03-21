@@ -99,4 +99,11 @@ public class TMoney {
 		Assert.assertThat(money.add(new Money(-26)), is(equalTo(expectedResult)));
 	}
 	
+	@Test
+	public void addTwoNegatives() {
+		Money money = new Money(-50);
+		Money expectedResult = new Money(-83);
+		
+		Assert.assertThat(money.add(new Money(-33)), is(equalTo(expectedResult)));
+	}
 }
