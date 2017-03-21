@@ -49,4 +49,14 @@ public class MoneyTest {
         Money result = entryValue.multiplyBy(-1);
         assertThat(result, is(expectedMoney));
     }
+
+    @Test
+    public void testLessOrEqualsMethodWhenValuesAreEqual() {
+        final Money firstTestValue = new Money(20);
+        final Money secondTestValue = new Money(20);
+
+        final boolean result = firstTestValue.lessOrEquals(secondTestValue);
+
+        assertThat(result, is(true));
+    }
 }
