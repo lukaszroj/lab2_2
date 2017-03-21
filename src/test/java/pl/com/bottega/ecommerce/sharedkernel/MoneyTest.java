@@ -60,11 +60,17 @@ public class MoneyTest {
 	
 	@Test
 	public void testLessThan() {
-		Money money1 = new Money(100);
-		Money money2 = new Money(500);
+		Money money1 = new Money(100.0);
+		Money money2 = new Money(500.0);
 		Assert.assertThat(money1.lessThan(money2), is(true));
 	}
 	
+	@Test
+	public void testLessOrEquals() {
+		Money money1 = new Money(100.0);
+		Money money2 = new Money(101.0);
+		Assert.assertThat(money1.lessOrEquals(money2), is(true));
+	}
 	
 
 }
