@@ -106,5 +106,12 @@ public class MoneyTest {
 		Money result = money.subtract(money1);
 		assertThat(result, is(equalTo(expected)));
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void subtractNotSameCurrency() {
+		Money m1 = new Money(50, Currency.getInstance("PLN"));
+		Money m2 = new Money(100, Currency.getInstance("SK"));
+		Money result = m1.subtract(m2);
+	}
 
 }
