@@ -1,6 +1,9 @@
 package pl.lab2_2.test;
 
 import static org.junit.Assert.*;
+
+import java.util.Currency;
+
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.Matchers.is;
 
@@ -66,5 +69,14 @@ public class MoneyTest {
 		Money result = money.add(money1);
 		assertThat(result, is(equalTo(expected)));
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void addNotSameCurrency() {
+		Money m1 = new Money(50, Currency.getInstance("PLN"));
+		Money m2 = new Money(100, Currency.getInstance("SK"));
+		Money result = m1.add(m2);
+	}
+	
+	
 
 }
