@@ -170,4 +170,20 @@ public class TMoney {
 
 		Assert.assertThat(money.subtract(new Money(19, Currency.getInstance("KRW"))), is(equalTo(expectedResult)));
 	}
+	
+	@Test
+	public void greaterThanMethodReturnsTrue() {
+		Money money = new Money(87);
+		Money testMoney = new Money(86);
+		
+		Assert.assertThat(money.greaterThan(testMoney), is(true));
+	}
+	
+	@Test
+	public void greaterThanMethodReturnsFalse() {
+		Money money = new Money(86);
+		Money testMoney = new Money(87);
+		
+		Assert.assertThat(money.greaterThan(testMoney), is(false));
+	}
 }
