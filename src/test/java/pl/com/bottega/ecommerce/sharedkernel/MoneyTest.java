@@ -2,9 +2,7 @@ package pl.com.bottega.ecommerce.sharedkernel;
 
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.util.Currency;
-
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -145,8 +143,4 @@ public class MoneyTest {
 
         assertThat(actual, is(true));
     }
-
-
-
-
 }
