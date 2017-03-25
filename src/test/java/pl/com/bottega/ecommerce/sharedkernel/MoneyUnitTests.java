@@ -108,5 +108,14 @@ public class MoneyUnitTests {
 		Money result = money1.add(money2);
 	}
 	
+	@Test
+	public void isGreaterThanCorrect() {
+		Money money1 = new Money(100);
+		Money money2 = new Money(50);
+	
+	    boolean isGreater = money1.greaterThan(money2);
+
+        assertThat(isGreater, is(true));
+     }
 	
 }
