@@ -107,4 +107,6 @@ public class MoneyUnitTests {
 		Money money2 = new Money(500, Currency.getInstance("PLN"));
 		Money result = money1.add(money2);
 	}
+	
+	
 }
