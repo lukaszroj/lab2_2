@@ -13,9 +13,12 @@ import org.junit.Test;
 
 public class InvoiceFactoryUnitTests {
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
+		@Test
+		public void createInvoiceHaveExpectedType() {
+		InvoiceFactory invoiceFactory = new InvoiceFactory();
+		ClientData clientData = new ClientData(Id.generate(), "Test");
+		Object result = invoiceFactory.create(clientData);
+		
+		assertThat(result, is(instanceOf(Invoice.class)));
 	}
-
 }
