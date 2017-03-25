@@ -12,12 +12,12 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
 
 public class PaymentFactoryUnitTests {
 
-		/*@Test
+		@Test
 		public void isCreatePaymentCorrectyType() {
 		ClientData clientData = new ClientData(Id.generate(), "Test");
 		PaymentFactory factory = new PaymentFactory();
 		Payment result = factory.createPayment(clientData, new Money(1000));
 	
 	    assertThat(result, is(instanceOf(Payment.class)));    
-	}*/
+	}
 }
