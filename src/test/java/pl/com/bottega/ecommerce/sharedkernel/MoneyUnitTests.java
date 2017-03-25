@@ -137,4 +137,14 @@ public class MoneyUnitTests {
          assertThat(isLessOrEquals, is(true));
     }
 	
+	@Test
+	   public void isLessOrEqualsWithSameValues() {
+	       Money money1 = new Money(100);
+	        Money money2 = new Money(100);
+	
+      boolean isLessOrEquals = money1.lessOrEquals(money2);
+
+      assertThat(isLessOrEquals, is(true));
+  }
+	
 }
