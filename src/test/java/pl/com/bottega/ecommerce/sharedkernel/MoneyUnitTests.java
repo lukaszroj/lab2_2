@@ -118,4 +118,13 @@ public class MoneyUnitTests {
         assertThat(isGreater, is(true));
      }
 	
+	@Test
+    public void isLessThanCorrect() {
+	     Money money1 = new Money(50);
+	     Money money2 = new Money(100);
+	
+	     boolean isLess = money1.lessThan(money2);
+		 assertThat(isLess, is(true));
+	 }
+	
 }
