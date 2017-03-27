@@ -30,4 +30,14 @@ public class MoneyTest {
 		Money result = money.multiplyBy(2);
 		Assert.assertThat(result.getCurrencyCode(), is(equalTo(money.getCurrencyCode())));
 	}
+
+	@Test
+	public void subtractPositiveCompatibleMoney() {
+		Money money1 = new Money(100);
+		Money money2 = new Money(10);
+		Money expected = new Money(90);
+		Money result = money1.subtract(money2);
+		Assert.assertThat(result, is(equalTo(expected)));
+	}
+
 }
