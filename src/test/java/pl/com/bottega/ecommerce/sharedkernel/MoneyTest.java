@@ -24,4 +24,10 @@ public class MoneyTest {
 		Assert.assertThat(result, is(equalTo(expected)));
 	}
 
+	@Test
+	public void defaultCurrency_checkCurrencyCode() {
+		Money money = new Money(100);
+		Money result = money.multiplyBy(2);
+		Assert.assertThat(result.getCurrencyCode(), is(equalTo(money.getCurrencyCode())));
+	}
 }
