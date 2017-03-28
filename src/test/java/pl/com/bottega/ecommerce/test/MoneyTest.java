@@ -85,8 +85,15 @@ public class MoneyTest {
 	}
 	
 	@Test
-	public void checkCurreny() {
+	public void checkCurrenyCode() {
 		Money pln = new Money(5, Currency.getInstance("PLN"));
 		assertThat(pln.getCurrencyCode(), is(equalTo("PLN")));
+	}
+	
+	@Test
+	public void greaterThan() {
+		Money more = new Money(8, Currency.getInstance("USD"));
+		Money less = new Money(7, Currency.getInstance("GBP"));
+		assertThat(more.greaterThan(less), is(equalTo(true)));
 	}
 }
