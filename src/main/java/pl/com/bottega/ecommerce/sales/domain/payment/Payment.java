@@ -21,14 +21,10 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
 
 public class Payment {
 
-	private ClientData clientData;
-
-	private Money amount;
-
-	private PaymentFactory paymentFactory;
-
 	private Id aggregateId;
-
+	private ClientData clientData;
+	private Money amount;
+	private PaymentFactory paymentFactory;
 
 	Payment(Id aggregateId, ClientData clientData, Money amount) {
 		this.aggregateId = aggregateId;
