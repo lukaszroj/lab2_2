@@ -70,5 +70,12 @@ public class MoneyTest {
 		value.add(subtracted);
 	}
 	
+	@Test
+	public void addZeroWithDifferenteCurrecny() {
+		Money pln = new Money(5, Currency.getInstance("PLN"));
+		Money usd = new Money(0, Currency.getInstance("USD"));
+		assertThat(pln.add(usd), is(equalTo(pln)));
+	}
+	
 	
 }
