@@ -35,4 +35,10 @@ public class MoneyTest {
 		Money expectedResult = new Money(35, Currency.getInstance("USD"));
 		assertThat(value.multiplyBy(7), is(equalTo(expectedResult)));
 	}
+	
+	@Test
+	public void addZero() {
+		Money value = new Money(5);
+		assertThat(value.add(new Money(0)), is(equalTo(value)));
+	}
 }
