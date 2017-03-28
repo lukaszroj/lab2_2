@@ -55,4 +55,12 @@ public class MoneyTest {
 		Money added = new Money(5, Currency.getInstance("USD"));		
 		value.add(added);
 	}
+	
+	@Test
+	public void subtractZero() {
+		Money value = new Money(5);
+		assertThat(value.subtract(new Money(0)), is(equalTo(value)));
+	}
+	
+	
 }
