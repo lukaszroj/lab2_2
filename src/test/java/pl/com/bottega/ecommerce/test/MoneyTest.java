@@ -96,4 +96,11 @@ public class MoneyTest {
 		Money less = new Money(7, Currency.getInstance("GBP"));
 		assertThat(more.greaterThan(less), is(equalTo(true)));
 	}
+	
+	@Test
+	public void lessThan() {
+		Money more = new Money(8, Currency.getInstance("USD"));
+		Money less = new Money(7, Currency.getInstance("GBP"));
+		assertThat(more.lessThan(less), is(not(true)));
+	}
 }
