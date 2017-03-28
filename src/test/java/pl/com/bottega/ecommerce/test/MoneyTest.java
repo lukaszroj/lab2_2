@@ -83,4 +83,10 @@ public class MoneyTest {
 		Money usd = new Money(0, Currency.getInstance("USD"));
 		assertThat(pln.subtract(usd), is(equalTo(pln)));
 	}
+	
+	@Test
+	public void checkCurreny() {
+		Money pln = new Money(5, Currency.getInstance("PLN"));
+		assertThat(pln.getCurrencyCode(), is(equalTo("PLN")));
+	}
 }
