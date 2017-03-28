@@ -1,7 +1,10 @@
 package pl.com.bottega.ecommerce.test;
 
 import static org.junit.Assert.*;
+
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import pl.com.bottega.ecommerce.sharedkernel.Money;
 import static org.hamcrest.CoreMatchers.*;
 import java.util.Currency;
@@ -40,5 +43,16 @@ public class MoneyTest {
 	public void addZero() {
 		Money value = new Money(5);
 		assertThat(value.add(new Money(0)), is(equalTo(value)));
+	}
+	
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
+	
+	@Test
+	public void addDifferentCurrency() throws IllegalArgumentException{
+		thrown.expect(IllegalArgumentException.class);
+		Money value = new Money(5, Currency.getInstance("PLN"));
+		Money added = new Money(5, Currency.getInstance("USD"));		
+		value.add(added);
 	}
 }
