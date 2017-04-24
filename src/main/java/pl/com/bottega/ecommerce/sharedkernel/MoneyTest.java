@@ -24,4 +24,11 @@ public class MoneyTest {
         assertThat(actual.getCurrency(), equalTo(money.getCurrency()));
         assertThat(actual, equalTo(new Money(100, money.getCurrency())));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void addDifferentCurrency() throws Exception {
+        Money money = new Money(12, Currency.getInstance("PLN"));
+        Money result = new Money(3.5, Currency.getInstance("EUR"));
+        money.add(result);
+    }
 }
