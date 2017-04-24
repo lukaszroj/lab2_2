@@ -78,4 +78,22 @@ public class MoneyTest {
         Money moneyToAdd = new Money(-1, Currency.getInstance("EUR"));
         Money result = money.add(moneyToAdd);
     }
+
+    @Test
+    public void substractPositiveNumbersTest() {
+        Money money = new Money(1);
+        Money moneyToSubstract = new Money(2);
+        Money result = money.subtract(moneyToSubstract);
+        Money expectedResult = new Money(-1);
+        Assert.assertThat(result, is(equalTo(expectedResult)));
+    }
+
+    @Test
+    public void substractNegativeNumbersTest() {
+        Money money = new Money(-1);
+        Money moneyToSubstract = new Money(-1);
+        Money result = money.subtract(moneyToSubstract);
+        Money expectedResult = new Money(0);
+        Assert.assertThat(result, is(equalTo(expectedResult)));
+    }
 }
