@@ -86,4 +86,12 @@ public class MoneyTest {
         boolean actual = moneyA.lessOrEquals(moneyB);
         assertThat(actual, is(true));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void lessOrEqualDifferentCurrencyNowLess() throws Exception {
+        Money moneyA = new Money(7, Currency.getInstance("PLN"));
+        Money moneyB = new Money(13, Currency.getInstance("EUR"));
+        boolean actual = moneyA.lessOrEquals(moneyB);
+        assertThat(actual, is(true));
+    }
 }
