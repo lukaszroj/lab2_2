@@ -78,4 +78,12 @@ public class MoneyTest {
         Money moneyB = new Money(69, Currency.getInstance("EUR"));
         moneyA.greaterThan(moneyB);
     }
+
+    @Test
+    public void lessOrEqualSameCurrencyNowLess() throws Exception {
+        Money moneyA = new Money(7, Currency.getInstance("PLN"));
+        Money moneyB = new Money(13, Currency.getInstance("PLN"));
+        boolean actual = moneyA.lessOrEquals(moneyB);
+        assertThat(actual, is(true));
+    }
 }
