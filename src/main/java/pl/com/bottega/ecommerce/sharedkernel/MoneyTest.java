@@ -80,20 +80,36 @@ public class MoneyTest {
     }
 
     @Test
-    public void substractPositiveNumbersTest() {
+    public void subtractPositiveNumbersTest() {
         Money money = new Money(1);
-        Money moneyToSubstract = new Money(2);
-        Money result = money.subtract(moneyToSubstract);
+        Money moneyToSubtract = new Money(2);
+        Money result = money.subtract(moneyToSubtract);
         Money expectedResult = new Money(-1);
         Assert.assertThat(result, is(equalTo(expectedResult)));
     }
 
     @Test
-    public void substractNegativeNumbersTest() {
+    public void subtractNegativeNumbersTest() {
         Money money = new Money(-1);
-        Money moneyToSubstract = new Money(-1);
-        Money result = money.subtract(moneyToSubstract);
+        Money moneyToSubtract = new Money(-1);
+        Money result = money.subtract(moneyToSubtract);
         Money expectedResult = new Money(0);
         Assert.assertThat(result, is(equalTo(expectedResult)));
+    }
+
+    @Test
+    public void subtractMixedNumbersTest() {
+        Money money = new Money(1);
+        Money moneyToSubtract = new Money(-1);
+        Money result = money.subtract(moneyToSubtract);
+        Money expectedResult = new Money(2);
+        Assert.assertThat(result, is(equalTo(expectedResult)));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void subtractAnotherCurrencyTest() {
+        Money money = new Money(1, Currency.getInstance("PLN"));
+        Money moneyToSubtract = new Money(-1, Currency.getInstance("EUR"));
+        Money result = money.subtract(moneyToSubtract);
     }
 }
