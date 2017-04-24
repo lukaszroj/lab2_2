@@ -31,4 +31,13 @@ public class MoneyTest {
         Money result = new Money(3.5, Currency.getInstance("EUR"));
         money.add(result);
     }
+
+    @Test
+    public void subtractSameCurrency() throws Exception {
+        Money money = new Money(20, Currency.getInstance("PLN"));
+        Money result = new Money(10, Currency.getInstance("PLN"));
+        Money actual = money.subtract(result);
+        assertThat(actual.getCurrency(), equalTo(money.getCurrency()));
+        assertThat(actual, equalTo(new Money(10, money.getCurrency())));
+    }
 }
