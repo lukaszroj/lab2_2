@@ -23,7 +23,7 @@ public class BookKeeperTest {
     private TaxPolicy taxPolicy;
 
     @Before
-    public void createInitialData() {
+    public void setUp() throws Exception {
         clientData = createClientDataInstance();
         bookKeeper = createBookKeeperInstance();
         taxPolicy = createTaxPolicyMockInstance();

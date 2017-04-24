@@ -17,7 +17,7 @@ public class InvoiceFactoryTest {
     private ClientData clientData;
 
     @Before
-    public void createInitialData() {
+    public void setUp() throws Exception {
         clientData = createClientDataInstance();
     }
 

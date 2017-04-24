@@ -18,7 +18,7 @@ public class PaymentFactoryTest {
     private Money money;
 
     @Before
-    public void createInitialData() {
+    public void setUp() throws Exception {
         clientData = createClientDataInstance();
         money = createMoneyInstance();
     }
