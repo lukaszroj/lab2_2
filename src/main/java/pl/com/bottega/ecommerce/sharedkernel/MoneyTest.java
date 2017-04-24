@@ -26,4 +26,22 @@ public class MoneyTest {
         Money expectedResult = new Money(0);
         Assert.assertThat(result, is(equalTo(expectedResult)));
     }
+
+    @Test
+    public void addPositiveNumbersTest() {
+        Money money = new Money(1);
+        Money moneyToAdd = new Money(2);
+        Money result = money.add(moneyToAdd);
+        Money expectedResult = new Money(3);
+        Assert.assertThat(result, is(equalTo(expectedResult)));
+    }
+
+    @Test
+    public void addNegativeNumbersTest() {
+        Money money = new Money(-1);
+        Money moneyToAdd = new Money(-1);
+        Money result = money.add(moneyToAdd);
+        Money expectedResult = new Money(-2);
+        Assert.assertThat(result, is(equalTo(expectedResult)));
+    }
 }
