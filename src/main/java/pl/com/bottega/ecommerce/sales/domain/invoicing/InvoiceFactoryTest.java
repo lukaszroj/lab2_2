@@ -17,7 +17,7 @@ public class InvoiceFactoryTest {
     private ClientData clientData;
 
     @Before
-    private void createInitialData() {
+    public void createInitialData() {
         clientData = createClientDataInstance();
     }
 
@@ -26,7 +26,7 @@ public class InvoiceFactoryTest {
     }
 
     @Test
-    private void createInvoiceTest() {
+    public void createInvoiceTest() {
         InvoiceFactory invoiceFactory = new InvoiceFactory();
         Invoice invoice = invoiceFactory.create(clientData);
         Assert.assertThat(invoice, is(instanceOf(Invoice.class)));
