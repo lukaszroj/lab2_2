@@ -44,4 +44,20 @@ public class MoneyTest {
         Money expectedResult = new Money(-2);
         Assert.assertThat(result, is(equalTo(expectedResult)));
     }
+
+    @Test
+    public void addMixedNumbersTest() {
+        Money money = new Money(1);
+        Money moneyToAdd = new Money(-1);
+        Money result = money.add(moneyToAdd);
+        Money expectedResult = new Money(0);
+        Assert.assertThat(result, is(equalTo(expectedResult)));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void addAnotherCurrencyTest() {
+        Money money = new Money(1, "PL");
+        Money moneyToAdd = new Money(-1);
+        Money result = money.add(moneyToAdd);
+    }
 }
