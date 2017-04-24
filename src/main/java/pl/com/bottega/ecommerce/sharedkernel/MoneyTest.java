@@ -3,6 +3,8 @@ package pl.com.bottega.ecommerce.sharedkernel;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Currency;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
@@ -56,8 +58,8 @@ public class MoneyTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void addAnotherCurrencyTest() {
-        Money money = new Money(1, "PL");
-        Money moneyToAdd = new Money(-1);
+        Money money = new Money(1, Currency.getInstance("PLN"));
+        Money moneyToAdd = new Money(-1, Currency.getInstance("EUR"));
         Money result = money.add(moneyToAdd);
     }
 }
