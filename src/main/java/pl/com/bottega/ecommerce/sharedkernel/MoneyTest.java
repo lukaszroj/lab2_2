@@ -71,4 +71,11 @@ public class MoneyTest {
         boolean actual = moneyB.greaterThan(moneyA);
         assertThat(actual, is(true));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void greaterThanDifferentCurrency() throws Exception {
+        Money moneyA = new Money(666, Currency.getInstance("PLN"));
+        Money moneyB = new Money(69, Currency.getInstance("EUR"));
+        moneyA.greaterThan(moneyB);
+    }
 }
