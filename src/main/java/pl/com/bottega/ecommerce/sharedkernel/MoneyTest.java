@@ -63,4 +63,12 @@ public class MoneyTest {
         Money moneyB = new Money(26, Currency.getInstance("EUR"));
         moneyA.lessThan(moneyB);
     }
+
+    @Test
+    public void greaterThanSameCurrency() throws Exception {
+        Money moneyA = new Money(66, Currency.getInstance("PLN"));
+        Money moneyB = new Money(234, Currency.getInstance("PLN"));
+        boolean actual = moneyB.greaterThan(moneyA);
+        assertThat(actual, is(true));
+    }
 }
