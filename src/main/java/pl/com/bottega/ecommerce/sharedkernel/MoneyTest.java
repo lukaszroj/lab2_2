@@ -14,10 +14,26 @@ import static org.hamcrest.core.IsEqual.equalTo;
 public class MoneyTest {
 
     @Test
-    public void multiplyByTest() {
+    public void multiplyByUsingOnlyPositiveNumbersTest() {
         Money money = new Money(1);
         Money result = money.multiplyBy(3);
         Money expectedResult = new Money(3);
+        Assert.assertThat(result, is(equalTo(expectedResult)));
+    }
+
+    @Test
+    public void multiplyByUsingOnlyNegativeNumbersTest() {
+        Money money = new Money(-1);
+        Money result = money.multiplyBy(-3);
+        Money expectedResult = new Money(3);
+        Assert.assertThat(result, is(equalTo(expectedResult)));
+    }
+
+    @Test
+    public void multiplyByUsingMixedNumbersTest() {
+        Money money = new Money(-1);
+        Money result = money.multiplyBy(3);
+        Money expectedResult = new Money(-3);
         Assert.assertThat(result, is(equalTo(expectedResult)));
     }
 
