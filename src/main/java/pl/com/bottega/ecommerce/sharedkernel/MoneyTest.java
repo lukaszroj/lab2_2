@@ -5,6 +5,7 @@ import java.util.Currency;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.core.Is.is;
 
 public class MoneyTest {
 
@@ -46,5 +47,13 @@ public class MoneyTest {
         Money money = new Money(666, Currency.getInstance("PLN"));
         Money result = new Money(69, Currency.getInstance("EUR"));
         money.subtract(result);
+    }
+
+    @Test
+    public void lessThanSameCurrency() throws Exception {
+        Money moneyA = new Money(16);
+        Money moneyB = new Money(9);
+        boolean actual = moneyA.lessThan(moneyB);
+        assertThat(actual, is(false));
     }
 }
