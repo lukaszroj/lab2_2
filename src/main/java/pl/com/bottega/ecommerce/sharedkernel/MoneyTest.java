@@ -51,9 +51,16 @@ public class MoneyTest {
 
     @Test
     public void lessThanSameCurrency() throws Exception {
-        Money moneyA = new Money(16);
-        Money moneyB = new Money(9);
+        Money moneyA = new Money(16, Currency.getInstance("PLN"));
+        Money moneyB = new Money(9, Currency.getInstance("PLN"));
         boolean actual = moneyA.lessThan(moneyB);
         assertThat(actual, is(false));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void lessThanDifferentCurrency() throws Exception {
+        Money moneyA = new Money(2, Currency.getInstance("PLN"));
+        Money moneyB = new Money(26, Currency.getInstance("EUR"));
+        moneyA.lessThan(moneyB);
     }
 }
