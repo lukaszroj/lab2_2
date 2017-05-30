@@ -30,7 +30,7 @@ public class Money {
 
 	private String currencyCode;
 
-	protected Money() {
+	public Money() {
 	}
 
 	public Money(BigDecimal denomination, Currency currency) {
